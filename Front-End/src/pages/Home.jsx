@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function Home() {
   return (
-    <div>
+    <div className="hero">
       <h1>Sri Lankan Spices</h1>
       <p>Explore authentic Ceylon spices 🧂🌶️</p>
 

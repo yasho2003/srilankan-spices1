@@ -1,0 +1,20 @@
+/* src/Header.css */
+.app-header {
+  padding: 1em;
+  text-align: center;
+  background-color: #333;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.app-header h1 {
+  margin: 0;
+}
+
+.app-header a {
+  color: white;
+  text-decoration: none;
+  margin-left: 1em;
+}
