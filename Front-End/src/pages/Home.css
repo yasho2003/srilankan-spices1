@@ -1,0 +1,191 @@
+/* Front-End/src/pages/Home.css */
+
+.home-hero {
+    height: 80vh;
+    /* Slightly less than full height to show content below */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    /* Align text to the right */
+    padding-right: 10%;
+    /* Spacing from the right edge */
+    text-align: right;
+    background-image: url('/images/hero-many-spices.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+/* Overlay to ensure text readability if needed, though we align to negative space */
+.home-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6));
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    color: var(--color-white);
+    max-width: 600px;
+}
+
+.hero-content h1 {
+    font-family: var(--font-heading);
+    font-size: 4.5rem;
+    margin-bottom: 0.5rem;
+    text-transform: capitalize;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-content p {
+    font-family: var(--font-body);
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    font-weight: 300;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.cta-button {
+    background-color: var(--color-secondary);
+    color: var(--color-text-dark);
+    border: none;
+    padding: 15px 32px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.cta-button:hover {
+    background-color: #ffcc00;
+    /* Lighter gold */
+    transform: translateY(-2px);
+}
+
+/* Sections */
+.section-featured,
+.section-about {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    color: var(--color-primary);
+    margin-bottom: 3rem;
+}
+
+/* Featured Grid */
+.spices-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.spice-card {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.spice-card:hover {
+    transform: translateY(-5px);
+}
+
+.spice-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.spice-card h3 {
+    font-family: var(--font-heading);
+    color: var(--color-primary);
+    font-size: 1.5rem;
+    margin: 1rem 0 0.5rem;
+}
+
+.spice-card p {
+    color: #666;
+    padding: 0 1rem 1.5rem;
+}
+
+/* About Section */
+.section-about {
+    background-color: var(--color-primary);
+    color: white;
+    margin-top: 2rem;
+}
+
+.section-about .section-title {
+    color: var(--color-secondary);
+}
+
+.about-text {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.2rem;
+    line-height: 1.8;
+}
+
+.spice-price {
+    font-family: var(--font-heading);
+    color: var(--color-text-dark);
+    font-size: 1.25rem;
+    font-weight: 700;
+    padding: 0 1rem 0.5rem;
+}
+
+.spice-actions {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem 1.5rem;
+    gap: 1rem;
+}
+
+.spice-btn {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    font-family: var(--font-body);
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-size: 0.9rem;
+}
+
+.btn-cart {
+    background-color: transparent;
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+}
+
+.btn-cart:hover {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.btn-buy {
+    background-color: var(--color-secondary);
+    color: var(--color-text-dark);
+}
+
+.btn-buy:hover {
+    background-color: #ffcc00;
+}

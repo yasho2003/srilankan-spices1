@@ -1,11 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Lato', system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
+  /* Color Palette - Curio Spice Inspired */
+  --color-primary: #a03c3c;
+  /* Paprika/Reddish Brown */
+  --color-secondary: #e6b800;
+  /* Turmeric Gold */
+  --color-bg-light: #f9f5f0;
+  /* Cream/Off-white */
+  --color-text-dark: #2c2c2c;
+  /* Charcoal */
+  --color-white: #ffffff;
+
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Lato', sans-serif;
+
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: var(--color-text-dark);
+  background-color: var(--color-bg-light);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -13,15 +29,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-
-
-.hero {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  background-color: rgb(137, 191, 239);
-  color: white;
+body {
+  margin: 0;
 }
+
+
+/* .hero styles moved to Home.css as .home-hero */
