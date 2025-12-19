@@ -14,14 +14,19 @@ import AdminDashboard from "./admin/AdminDashboard";
 import AddProduct from "./admin/AddProduct";
 import EditProduct from "./admin/EditProduct";
 
+// Footer pages
+import WomenWithSpices from "./pages/WomenWithSpices";
+import Blog from "./pages/Blog";
+import BlogDetails from "./pages/BlogDetails";
+
 function App() {
   return (
     <BrowserRouter>
       {/* Add the main flex container */}
       <div className="app-container">
-        
+
         <Header />
-        
+
         {/* Wrap Routes in a content div that expands */}
         <div className="content-wrap">
           <Routes>
@@ -32,11 +37,16 @@ function App() {
             <Route path="/admin/dashboard" element={<AdminDashboard />} />
             <Route path="/admin/add-product" element={<AddProduct />} />
             <Route path="/admin/edit-product/:id" element={<EditProduct />} />
+
+            {/* Footer Pages */}
+            <Route path="/women-with-spices" element={<WomenWithSpices />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:id" element={<BlogDetails />} />
           </Routes>
         </div>
 
         <Footer />
-        
+
       </div>
     </BrowserRouter>
   );

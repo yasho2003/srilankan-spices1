@@ -1,12 +1,12 @@
-// src/components/Footer.jsx
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Footer.css';
 import { FaPhoneAlt, FaEnvelope, FaFacebookF, FaPinterestP, FaInstagram, FaTiktok } from 'react-icons/fa'; // Requires: npm install react-icons
 
 const Footer = () => {
   return (
     <footer className="footer">
-      
+
       {/* --- Top Section: Newsletter --- */}
       <div className="newsletter-section">
         <h3>Sign up for our newsletter for early access to releases, special offers, and a dash of spice-filled inspiration.</h3>
@@ -20,16 +20,14 @@ const Footer = () => {
 
       {/* --- Bottom Section: Links Grid --- */}
       <div className="footer-links-container">
-        
+
         {/* Column 1 */}
         <div className="footer-col">
           <h4>Let's Be Curious</h4>
           <ul>
-            <li><a href="/films">Women in Spice Films</a></li>
-            <li><a href="/blog">Our Blog</a></li>
-            <li><a href="/journal">Claire's Journal</a></li>
-            <li><a href="/press">Press Mentions</a></li>
-            <li><a href="/refill">Cambridge Refill Program</a></li>
+            <li><Link to="/women-with-spices">Women with spices </Link></li>
+            <li><Link to="/blog">Our Blog</Link></li>
+            <li><a href="/journal">Spice Journal</a></li>
             <li><a href="/careers">Join Our Team</a></li>
             <li><a href="/account">My account</a></li>
           </ul>
@@ -65,7 +63,7 @@ const Footer = () => {
             <p><FaPhoneAlt className="icon" /> (+94) 123-456-789</p>
             <p><FaEnvelope className="icon" /> <a href="mailto:help@example.com">Email us</a></p>
           </div>
-          
+
           <h4 className="mt-4">Follow us</h4>
           <div className="social-icons">
             <a href="#"><FaFacebookF /></a>
@@ -94,7 +92,7 @@ const Footer = () => {
         </div>
 
       </div>
-      
+
       {/* Copyright Bar */}
       <div className="footer-bottom">
         <p>© {new Date().getFullYear()}All rights reserved.</p>
