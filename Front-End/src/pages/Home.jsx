@@ -7,42 +7,42 @@ function Home() {
   const featuredSpices = [
     {
       id: 1,
-      name: "Ceylon Cinnamon",
+      name: "Ceylon Cinnamon (කුරුඳු)",
       description: "True Cinnamon, delicate and slightly sweet, harvested from the inner bark.",
       image: "/images/spice-cinnamon.png",
       price: "$15.00",
     },
     {
       id: 2,
-      name: "Green Cardamom",
+      name: "Green Cardamom (කරදමුංගු)",
       description: "The 'Queen of Spices', known for its intense, slightly sweet flavor.",
       image: "/images/spice-cardamom.png",
       price: "$22.50",
     },
     {
       id: 3,
-      name: "Black Pepper",
+      name: "Black Pepper (ගම්මිරිස්)",
       description: "King of spices, offering a sharp, hot biting taste.",
       image: "/images/spice-pepper.png",
       price: "$12.00",
     },
     {
       id: 4,
-      name: "Chili Flakes",
+      name: "Chili Flakes (කෑලිමිරිස්)",
       description: "Sun-dried red chilies crushed for a fiery kick.",
       image: "/images/spice-chili-flakes.png",
       price: "$8.50",
     },
     {
       id: 5,
-      name: "Turmeric Powder",
+      name: "Turmeric Powder (කහකුඩු)",
       description: "Vibrant yellow spice known for its earthy aroma and health benefits.",
       image: "/images/spice-turmeric.png",
       price: "$10.00",
     },
     {
       id: 6,
-      name: "Nutmeg",
+      name: "Nutmeg (සාදික්කා)",
       description: "Warm, nutty flavor perfect for baking and savory dishes.",
       image: "/images/spice-cardamom.png", // Placeholder using Cardamom for now
       price: "$18.00",
