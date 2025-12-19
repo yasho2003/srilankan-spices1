@@ -1,5 +1,5 @@
 import React from 'react';
-import womenSpicesHero from '../assets/women_spices_hero.png';
+import womenSpicesHero from '../assets/women_spices_hero_new.jpg';
 import './WomenWithSpices.css';
 
 const WomenWithSpices = () => {
@@ -40,7 +40,7 @@ const WomenWithSpices = () => {
                 />
                 <div className="hero-overlay">
                     <h1>Women with Spices</h1>
-                    <p>Celebrating the hands and hearts behind the flavors we love.</p>
+                    <h2>Celebrating the hands and hearts behind the flavors we love.</h2>
                 </div>
             </div>
 

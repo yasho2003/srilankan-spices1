@@ -7,8 +7,8 @@ const Blog = () => {
     return (
         <div className="blog-page">
             <header className="blog-header">
-                <h1>Our Blog</h1>
-                <p>Stories, tips, and recipes from the world of spices.</p>
+                <h1>Spicy Blogs</h1>
+                <p><strong>Stories, tips, and recipes from the world of spices.</strong></p>
             </header>
 
             <div className="blog-grid">
