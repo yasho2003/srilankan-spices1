@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css';
 import Header from './component/Header';
+import Footer from './component/Footer';
 
 // Customer pages
 import Home from "./pages/Home";
@@ -16,19 +17,27 @@ import EditProduct from "./admin/EditProduct";
 function App() {
   return (
     <BrowserRouter>
-      <Header />
-      <Routes>
-        {/* Customer */}
-        <Route path="/" element={<Home />} />
-        <Route path="/products" element={<ProductList />} />
-        <Route path="/products/:id" element={<ProductDetails />} />
+      {/* Add the main flex container */}
+      <div className="app-container">
+        
+        <Header />
+        
+        {/* Wrap Routes in a content div that expands */}
+        <div className="content-wrap">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/products" element={<ProductList />} />
+            <Route path="/products/:id" element={<ProductDetails />} />
+            <Route path="/admin/login" element={<AdminLogin />} />
+            <Route path="/admin/dashboard" element={<AdminDashboard />} />
+            <Route path="/admin/add-product" element={<AddProduct />} />
+            <Route path="/admin/edit-product/:id" element={<EditProduct />} />
+          </Routes>
+        </div>
 
-        {/* Admin */}
-        <Route path="/admin/login" element={<AdminLogin />} />
-        <Route path="/admin/dashboard" element={<AdminDashboard />} />
-        <Route path="/admin/add-product" element={<AddProduct />} />
-        <Route path="/admin/edit-product/:id" element={<EditProduct />} />
-      </Routes>
+        <Footer />
+        
+      </div>
     </BrowserRouter>
   );
 }

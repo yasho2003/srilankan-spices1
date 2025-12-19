@@ -1,0 +1,10 @@
+/* src/App.css */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Takes up at least 100% of the viewport height */
+}
+
+.content-wrap {
+  flex: 1; /* This pushes the footer down to the bottom */
+}
