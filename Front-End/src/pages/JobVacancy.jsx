@@ -37,7 +37,7 @@ const JobVacancy = () => {
             </div>
 
             <div className="apply-form">
-                <h3>Apply needed For The Post</h3>
+                <h3>Apply For The Post</h3>
                 <form>
                     <div className="form-group">
                         <label>Name with Initials</label>
@@ -51,7 +51,7 @@ const JobVacancy = () => {
 
                     <div className="form-group">
                         <label>Email Address</label>
-                        <input type="email" placeholder="you@example.com" required />
+                        <input type="email" placeholder="abc@company.com" required />
                     </div>
 
                     <div className="form-group">

@@ -1,5 +1,7 @@
 import React from 'react';
-import './Careers.css'; // Reusing the css file
+import './Careers.css';
+import handCraftImg from '../assets/hand_craft_workshop.jpg';
+import cookingCompetitionImg from '../assets/Cooking-competition.jpg';
 
 const eventsData = [
     {
@@ -7,21 +9,24 @@ const eventsData = [
         title: "Free Cookery Class & Workshop",
         description: "Join our expert chefs for a hands-on experience in mastering Sri Lankan spices. learn traditional recipes and modern twists.",
         date: "Coming Soon",
-        location: "Colombo Center"
+        location: "Colombo Center",
+        image: "src/assets/cokkingworkshop.jpg"
     },
     {
         id: 2,
         title: "Hand Craft Workshops",
         description: "Explore the artistic side of spices with our free hand-craft workshops. Create spice art, scented candles, and more.",
         date: "Monthly",
-        location: "Kandy Branch"
+        location: "Kandy Branch",
+        image: handCraftImg
     },
     {
         id: 3,
         title: "Annual Cookery Competition",
         description: "Show off your culinary skills! Compete with the best home cooks and win exciting prizes. Categories for all ages.",
         date: "December 2025",
-        location: "Galle Face Green"
+        location: "Galle Face Green",
+        image: cookingCompetitionImg
     }
 ];
 
@@ -36,11 +41,14 @@ const Events = () => {
             <div className="careers-grid">
                 {eventsData.map(event => (
                     <div key={event.id} className="event-card">
-                        <h2 className="event-title">{event.title}</h2>
-                        <p>{event.description}</p>
-                        <hr style={{ margin: '15px 0', border: '0', borderTop: '1px solid #eee' }} />
-                        <p><strong>When:</strong> {event.date}</p>
-                        <p><strong>Where:</strong> {event.location}</p>
+                        <img src={event.image} alt={event.title} className="event-image" />
+                        <div className="event-content">
+                            <h2 className="event-title">{event.title}</h2>
+                            <p>{event.description}</p>
+                            <hr style={{ margin: '15px 0', border: '0', borderTop: '1px solid #eee' }} />
+                            <p><strong>When:</strong> {event.date}</p>
+                            <p><strong>Where:</strong> {event.location}</p>
+                        </div>
                     </div>
                 ))}
             </div>
