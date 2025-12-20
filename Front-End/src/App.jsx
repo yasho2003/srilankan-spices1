@@ -19,6 +19,10 @@ import WomenWithSpices from "./pages/WomenWithSpices";
 import Blog from "./pages/Blog";
 import BlogDetails from "./pages/BlogDetails";
 import SpiceJournal from "./pages/SpiceJournal";
+import Careers from "./pages/Careers";
+import Events from "./pages/Events";
+import JobVacancy from "./pages/JobVacancy";
+import SellerPartnership from "./pages/SellerPartnership";
 
 function App() {
   return (
@@ -44,6 +48,10 @@ function App() {
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:id" element={<BlogDetails />} />
             <Route path="/spice-journal" element={<SpiceJournal />} />
+            <Route path="/careers" element={<Careers />} />
+            <Route path="/events" element={<Events />} />
+            <Route path="/careers/sales-promoter" element={<JobVacancy />} />
+            <Route path="/careers/partner" element={<SellerPartnership />} />
           </Routes>
         </div>
 

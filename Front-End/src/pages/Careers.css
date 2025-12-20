@@ -1,0 +1,200 @@
+/* Careers Hub */
+.careers-page {
+    padding: 80px 20px;
+    background-color: #fcfcfc;
+    min-height: 100vh;
+    text-align: center;
+}
+
+.careers-header {
+    margin-bottom: 60px;
+}
+
+.careers-header h1 {
+    font-size: 3.5rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-family: 'Playfair Display', serif;
+}
+
+.careers-header p {
+    font-size: 1.2rem;
+    color: #666;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.careers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.career-card {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.career-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.card-icon {
+    font-size: 3rem;
+    color: #d35400;
+    margin-bottom: 20px;
+}
+
+.career-card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.career-card p {
+    color: #777;
+    font-size: 1rem;
+}
+
+/* Events Page */
+.events-page {
+    padding: 60px 20px;
+    background-color: #fff;
+}
+
+.event-card {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 30px;
+    margin-bottom: 30px;
+    background: #fff;
+    transition: all 0.3s ease;
+}
+
+.event-card:hover {
+    border-color: #d35400;
+    box-shadow: 0 5px 15px rgba(211, 84, 0, 0.1);
+}
+
+.event-title {
+    color: #d35400;
+    margin-bottom: 10px;
+}
+
+/* Job Vacancy Page */
+.job-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+.job-details {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    margin-bottom: 40px;
+}
+
+.job-section {
+    margin-bottom: 30px;
+}
+
+.job-section h3 {
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+.apply-form {
+    background: #f9f9f9;
+    padding: 40px;
+    border-radius: 10px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #444;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.submit-btn {
+    background-color: #d35400;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+.submit-btn:hover {
+    background-color: #e67e22;
+}
+
+/* Seller Partnership */
+.partner-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.partner-content {
+    background: white;
+    padding: 50px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.partner-cta {
+    margin-top: 40px;
+}
+
+.email-btn {
+    display: inline-block;
+    background-color: #27ae60;
+    color: white;
+    padding: 15px 40px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.email-btn:hover {
+    transform: scale(1.05);
+    background-color: #219150;
+}

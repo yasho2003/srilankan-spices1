@@ -7,9 +7,12 @@ function Header() {
     <header className="app-header">
       <h1>My Website</h1>
       <nav>
-        <a href="/">Home</a> | 
-        <a href="/about">About</a> | 
-        <a href="/contact">Contact</a>
+        <a href="/">HOME</a> | 
+        <a href="/about">ABOUT</a> | 
+        <a href="/contact">CONTACT</a> |
+        <a href="/events">EVENTS</a>
+        
+
       </nav>
     </header>
   );
