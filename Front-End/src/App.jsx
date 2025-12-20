@@ -18,6 +18,7 @@ import EditProduct from "./admin/EditProduct";
 import WomenWithSpices from "./pages/WomenWithSpices";
 import Blog from "./pages/Blog";
 import BlogDetails from "./pages/BlogDetails";
+import SpiceJournal from "./pages/SpiceJournal";
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
             <Route path="/women-with-spices" element={<WomenWithSpices />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:id" element={<BlogDetails />} />
+            <Route path="/spice-journal" element={<SpiceJournal />} />
           </Routes>
         </div>
 

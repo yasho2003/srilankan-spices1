@@ -27,7 +27,7 @@ const Footer = () => {
           <ul>
             <li><Link to="/women-with-spices">Women with spices </Link></li>
             <li><Link to="/blog">Our Blog</Link></li>
-            <li><a href="/journal">Spice Journal</a></li>
+            <li><Link to="/spice-journal">Spice Journal</Link></li>
             <li><a href="/careers">Join Our Team</a></li>
             <li><a href="/account">My account</a></li>
           </ul>
