@@ -37,9 +37,9 @@ const Footer = () => {
         <div className="footer-col">
           <h4>Wholesale & Gifting</h4>
           <ul>
-            <li><a href="/wholesale">Wholesale & Bulk</a></li>
-            <li><a href="/gifts">Business Gifts</a></li>
-            <li><a href="/favors">Party Favors</a></li>
+            <li><Link to="/wholesale">Wholesale & Bulk</Link></li>
+            <li><Link to="/gifts">Business Gifts</Link></li>
+            <li><a href="/favors">Essential Favors</a></li>
           </ul>
         </div>
 
@@ -48,9 +48,6 @@ const Footer = () => {
           <h4>Essential Info</h4>
           <ul>
             <li><a href="/locations">Locations & Hours</a></li>
-            <li><a href="/locator">Store Locator</a></li>
-            <li><a href="/privacy">Privacy</a></li>
-            <li><a href="/terms">Terms of Use</a></li>
             <li><a href="/refund">Refund Policy</a></li>
             <li><a href="/faq">FAQ</a></li>
           </ul>

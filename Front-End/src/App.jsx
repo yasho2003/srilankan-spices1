@@ -22,7 +22,10 @@ import SpiceJournal from "./pages/SpiceJournal";
 import Careers from "./pages/Careers";
 import Events from "./pages/Events";
 import JobVacancy from "./pages/JobVacancy";
+
 import SellerPartnership from "./pages/SellerPartnership";
+import WholesaleBulk from "./pages/WholesaleBulk";
+import BusinessGifting from "./pages/BusinessGifting";
 
 function App() {
   return (
@@ -52,6 +55,8 @@ function App() {
             <Route path="/events" element={<Events />} />
             <Route path="/careers/sales-promoter" element={<JobVacancy />} />
             <Route path="/careers/partner" element={<SellerPartnership />} />
+            <Route path="/wholesale" element={<WholesaleBulk />} />
+            <Route path="/gifts" element={<BusinessGifting />} />
           </Routes>
         </div>
 

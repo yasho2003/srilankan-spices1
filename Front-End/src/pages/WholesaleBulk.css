@@ -1,0 +1,360 @@
+.wholesale-page {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+}
+
+.wholesale-header {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #f8f5f2;
+}
+
+.wholesale-header h1 {
+    font-size: 3.5rem;
+    color: #074d12;
+    margin-bottom: 10px;
+}
+
+.section-container {
+    padding: 60px 40px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+/* Alternating Backgrounds */
+.farm-section {
+    padding: 70px 60px;
+    /* Restoring section padding */
+    gap: 60px;
+    align-items: stretch;
+    background-color: transparent;
+}
+
+.farm-section .content-side {
+    background-color: transparent;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Card Styles */
+.farm-content-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.farm-card-top {
+    background-color: #4b5e28;
+    /* Dark Olive Green */
+    color: #fff;
+    padding: 60px 40px;
+    flex: 1;
+}
+
+.farm-card-top h2 {
+    color: #fff !important;
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.farm-card-top p {
+    color: #f7f7f7;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.farm-card-bottom {
+    background-color: #c28f0d;
+    padding: 30px 40px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+}
+
+.farm-card-bottom:hover {
+    background-color: #c4a65a;
+}
+
+.contact-icon {
+    font-size: 2rem;
+    color: #d4b66a;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.farm-section .image-side {
+    padding: 0;
+    min-height: 400px;
+}
+
+.farm-section .image-side img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+/* Alternating Backgrounds */
+.wholesale-details-section {
+    padding: 70px 60px;
+    gap: 60px;
+    align-items: stretch;
+    background-color: transparent;
+}
+
+.wholesale-details-section .content-side {
+    background-color: transparent;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Wholesale Card Styling */
+.wholesale-content-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.wholesale-card-top {
+    background-color: #8a330b;
+    /* Dark Spice Rust/Red */
+    color: white;
+    padding: 60px 40px;
+    flex: 1;
+}
+
+.wholesale-card-top h1 {
+    color: white !important;
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.wholesale-card-top p {
+    color: #f7f7f7;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.wholesale-card-bottom {
+    background-color: #2c3e50;
+    /* Dark Slate Blue/Grey for contrast */
+    padding: 30px 40px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: white;
+    font-weight: 600;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+}
+
+.wholesale-card-bottom:hover {
+    background-color: #34495e;
+}
+
+.btn-pricing-link {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Ensure images fill height */
+.wholesale-details-section .image-side {
+    padding: 0;
+    min-height: 300px;
+    /* Increased height for better visual impact as requested */
+}
+
+.wholesale-details-section .image-side img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.content-side,
+.image-side {
+    flex: 1;
+    min-width: 300px;
+}
+
+.content-side h2 {
+    font-size: 2.1rem;
+    color: #c5580b;
+    margin-bottom: 20px;
+}
+
+.content-side p {
+    line-height: 2;
+    margin-bottom: 15px;
+    color: #fcfafa;
+    font-size: 1.3rem;
+    font-family: monospace;
+}
+
+.image-side img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Button */
+.btn-pricing {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 30px;
+    background-color: #e67e22;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 30px;
+    transition: background 0.3s;
+}
+
+.btn-pricing:hover {
+    background-color: #d35400;
+}
+
+/* Invoice Section */
+.invoice-section {
+    background-color: #fff8e1;
+    /* Very light yellow/cream */
+    flex-direction: column;
+    text-align: center;
+}
+
+.invoice-section h2 {
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+.invoice-container {
+    margin-top: 15px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.invoice-img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Reviews Section */
+.reviews-section {
+    background-color: #ffffff;
+    flex-direction: column;
+    text-align: center;
+}
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.review-card {
+    background: #fdfdfd;
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.stars {
+    color: #f1c40f;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.review-card p {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.review-card h4 {
+    color: #333;
+    font-weight: 600;
+}
+
+/* Partners Section */
+.partners-section {
+    background-color: #f9f9f7;
+    /* Warmer off-white background like reference */
+    flex-direction: column;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.partners-title {
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    color: #333;
+    margin-bottom: 40px;
+    font-weight: 600;
+}
+
+.logos-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* Center the grid */
+    gap: 50px;
+    /* Generous spacing */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.partner-logo {
+    /* Removed card styling for cleaner look */
+    background: transparent;
+    box-shadow: none;
+    height: auto;
+    width: 150px;
+    /* Fixed width for consistency */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.8;
+    /* Slight fade for professional look */
+    transition: opacity 0.3s;
+}
+
+.partner-logo:hover {
+    opacity: 1;
+}
+
+.partner-logo img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    /* If logos have white bg, we might need mix-blend-mode or transparent images */
+    mix-blend-mode: multiply;
+    /* Helps blend white backgrounds onto off-white if images are not transparent */
+}
