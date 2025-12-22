@@ -26,6 +26,7 @@ import JobVacancy from "./pages/JobVacancy";
 import SellerPartnership from "./pages/SellerPartnership";
 import WholesaleBulk from "./pages/WholesaleBulk";
 import BusinessGifting from "./pages/BusinessGifting";
+import EssentialFavors from "./pages/EssentialFavors";
 
 function App() {
   return (
@@ -57,6 +58,7 @@ function App() {
             <Route path="/careers/partner" element={<SellerPartnership />} />
             <Route path="/wholesale" element={<WholesaleBulk />} />
             <Route path="/gifts" element={<BusinessGifting />} />
+            <Route path="/favors" element={<EssentialFavors />} />
           </Routes>
         </div>
 
