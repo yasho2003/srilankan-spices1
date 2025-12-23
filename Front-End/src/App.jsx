@@ -29,6 +29,7 @@ import BusinessGifting from "./pages/BusinessGifting";
 import EssentialFavors from "./pages/EssentialFavors";
 import LocationsAndHours from "./pages/LocationsAndHours";
 import RefundPolicy from "./pages/RefundPolicy";
+import FAQ from "./pages/FAQ";
 
 function App() {
   return (
@@ -63,6 +64,7 @@ function App() {
             <Route path="/favors" element={<EssentialFavors />} />
             <Route path="/locations" element={<LocationsAndHours />} />
             <Route path="/refund" element={<RefundPolicy />} />
+            <Route path="/faq" element={<FAQ />} />
           </Routes>
         </div>
 
