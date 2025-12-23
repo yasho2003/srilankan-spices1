@@ -6,6 +6,13 @@ import oilLavender from '../assets/oil_lavender.jpg';
 import oilLily from '../assets/oil_lily.png';
 import oilJasmine from '../assets/oil_jasmine.png';
 import oilLemon from '../assets/oil_lemon.jpg';
+import oilPeppermint from '../assets/oil_peppermint.jpg';
+import oilEucalyptus from '../assets/oil_eucalyptus.jpg';
+import oilChamomile from '../assets/oil_chamomile.jpg';
+import oilCinnamon from '../assets/oil_cinnamon.jpg';
+import oilVanilla from '../assets/oil_vanilla.jpg';
+import oilSandalwood from '../assets/oil_sandalwood.jpg';
+import oilClove from '../assets/oil_clove.jpg';
 
 const EssentialFavors = () => {
 
@@ -53,7 +60,7 @@ const EssentialFavors = () => {
         {
             id: 6,
             name: "Fresh Peppermint",
-            image: "https://images.unsplash.com/photo-1608579970923-e18e69882650?q=80&w=1000&auto=format&fit=crop",
+            image: oilPeppermint,
             description: "Cool and invigorating. Excellent for focus and clearing the mind.",
             price: "$14.00",
             size: "15ml"
@@ -61,7 +68,7 @@ const EssentialFavors = () => {
         {
             id: 7,
             name: "Eucalyptus Clarity",
-            image: "https://images.unsplash.com/photo-1516053896500-1d89eb75d27d?q=80&w=1000&auto=format&fit=crop",
+            image: oilEucalyptus,
             description: "A crisp, purifying scent that promotes deep breathing and wellness.",
             price: "$14.00",
             size: "15ml"
@@ -69,7 +76,7 @@ const EssentialFavors = () => {
         {
             id: 8,
             name: "Chamomile Calm",
-            image: "https://images.unsplash.com/photo-1593855584501-c887460e6593?q=80&w=1000&auto=format&fit=crop",
+            image: oilChamomile,
             description: "Gentle and soothing. Ideal for establishing a peaceful bedtime routine.",
             price: "$19.00",
             size: "10ml"
@@ -77,7 +84,7 @@ const EssentialFavors = () => {
         {
             id: 9,
             name: "Ceylon Cinnamon",
-            image: "https://images.unsplash.com/photo-1599940824399-b87987ce0799?q=80&w=1000&auto=format&fit=crop",
+            image: oilCinnamon,
             description: "Warm, spicy, and inviting. The true scent of Sri Lankan heritage.",
             price: "$16.00",
             size: "15ml"
@@ -85,7 +92,7 @@ const EssentialFavors = () => {
         {
             id: 10,
             name: "Pure Vanilla",
-            image: "https://images.unsplash.com/photo-1623821773094-1a221f579b29?q=80&w=1000&auto=format&fit=crop",
+            image: oilVanilla,
             description: "Sweet, comforting, and classic. A familiar aroma that feels like home.",
             price: "$25.00",
             size: "10ml"
@@ -93,7 +100,7 @@ const EssentialFavors = () => {
         {
             id: 11,
             name: "Sacred Sandalwood",
-            image: "https://images.unsplash.com/photo-1616782531835-24231bca3480?q=80&w=1000&auto=format&fit=crop",
+            image: oilSandalwood,
             description: "Woody, earthy, and grounding. A luxurious oil for meditation and peace.",
             price: "$28.00",
             size: "5ml"
@@ -101,7 +108,7 @@ const EssentialFavors = () => {
         {
             id: 12,
             name: "Spicy Clove",
-            image: "https://images.unsplash.com/photo-1593335555198-5c468e27ca4c?q=80&w=1000&auto=format&fit=crop",
+            image: oilClove,
             description: "Strong and stimulating. A powerful spice oil with a rich, historical aroma.",
             price: "$15.00",
             size: "15ml"
