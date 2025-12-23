@@ -47,9 +47,9 @@ const Footer = () => {
         <div className="footer-col">
           <h4>Essential Info</h4>
           <ul>
-            <li><a href="/locations">Locations & Hours</a></li>
-            <li><a href="/refund">Refund Policy</a></li>
-            <li><a href="/faq">FAQ</a></li>
+            <li><Link to="/locations">Location & Hours</Link></li>
+            <li><Link to="/refund">Refund Policy</Link></li>
+            <li><Link to="/faq">FAQ</Link></li>
           </ul>
         </div>
 

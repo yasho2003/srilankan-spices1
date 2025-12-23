@@ -27,6 +27,7 @@ import SellerPartnership from "./pages/SellerPartnership";
 import WholesaleBulk from "./pages/WholesaleBulk";
 import BusinessGifting from "./pages/BusinessGifting";
 import EssentialFavors from "./pages/EssentialFavors";
+import LocationsAndHours from "./pages/LocationsAndHours";
 
 function App() {
   return (
@@ -59,6 +60,7 @@ function App() {
             <Route path="/wholesale" element={<WholesaleBulk />} />
             <Route path="/gifts" element={<BusinessGifting />} />
             <Route path="/favors" element={<EssentialFavors />} />
+            <Route path="/locations" element={<LocationsAndHours />} />
           </Routes>
         </div>
 
