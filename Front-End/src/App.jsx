@@ -28,6 +28,7 @@ import WholesaleBulk from "./pages/WholesaleBulk";
 import BusinessGifting from "./pages/BusinessGifting";
 import EssentialFavors from "./pages/EssentialFavors";
 import LocationsAndHours from "./pages/LocationsAndHours";
+import RefundPolicy from "./pages/RefundPolicy";
 
 function App() {
   return (
@@ -61,6 +62,7 @@ function App() {
             <Route path="/gifts" element={<BusinessGifting />} />
             <Route path="/favors" element={<EssentialFavors />} />
             <Route path="/locations" element={<LocationsAndHours />} />
+            <Route path="/refund" element={<RefundPolicy />} />
           </Routes>
         </div>
 
