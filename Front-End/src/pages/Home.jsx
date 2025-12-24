@@ -44,7 +44,7 @@ function Home() {
       id: 6,
       name: "Nutmeg (සාදික්කා)",
       description: "Warm, nutty flavor perfect for baking and savory dishes.",
-      image: "/images/spice-cardamom.png", // Placeholder using Cardamom for now
+      image: "/images/spice-nutmeg.png", 
       price: "$18.00",
     },
   ];

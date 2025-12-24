@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 const products = [
   { id: 1, name: "Ceylon Cinnamon", price: 1200, desc: "Pure Ceylon cinnamon sticks." },
@@ -8,7 +8,12 @@ const products = [
 
 function ProductDetails() {
   const { id } = useParams();
+  const navigate = useNavigate();
   const product = products.find((p) => p.id === Number(id));
+
+  const handleAddToCart = () => {
+    navigate("/cart");
+  };
 
   return (
     <div>
@@ -16,7 +21,7 @@ function ProductDetails() {
       <p>{product.desc}</p>
       <p>Price: Rs. {product.price}</p>
 
-      <button>Add to Cart</button>
+      <button onClick={handleAddToCart}>Add to Cart</button>
     </div>
   );
 }

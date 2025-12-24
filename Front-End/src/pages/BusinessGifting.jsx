@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './BusinessGifting.css';
 import goldenTea from '../assets/golden-turmeric-tea.jpg';
 
 const BusinessGifting = () => {
+    const navigate = useNavigate();
     const [selectedGift, setSelectedGift] = useState(null);
 
     // Dummy Data for Gift Packs
@@ -52,7 +54,7 @@ const BusinessGifting = () => {
         {
             id: 4,
             name: "Golden Turmeric Wellness Kit",
-            image: goldenTea ,
+            image: goldenTea,
             description: "Harness the power of golden turmeric with this health-focused gift set.",
             price: "$35.00",
             items: [
@@ -73,7 +75,7 @@ const BusinessGifting = () => {
     };
 
     const handleAddToCart = () => {
-        alert(`Added ${selectedGift.name} to cart!`);
+        navigate("/cart");
         closeModal();
     };
 

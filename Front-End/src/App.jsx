@@ -30,6 +30,7 @@ import EssentialFavors from "./pages/EssentialFavors";
 import LocationsAndHours from "./pages/LocationsAndHours";
 import RefundPolicy from "./pages/RefundPolicy";
 import FAQ from "./pages/FAQ";
+import Cart from "./pages/Cart";
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
         <div className="content-wrap">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/cart" element={<Cart />} />
             <Route path="/products" element={<ProductList />} />
             <Route path="/products/:id" element={<ProductDetails />} />
             <Route path="/admin/login" element={<AdminLogin />} />

@@ -1,20 +1,154 @@
-/* src/Header.css */
-.app-header {
-  padding: 1em;
-  text-align: center;
-  background-color: #000000;
-  color: white;
+/* Premium Dark Header Styling */
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 10px 40px;
+  /* Reduced padding for more compact header */
+  background-color: #000000;
+  color: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
 }
 
-.app-header h1 {
-  margin: 0;
+/* Logo Section */
+.logo-container {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
-.app-header a {
-  color: white;
+.logo {
+  height: 65px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 2px rgba(197, 160, 89, 0.4));
+}
+
+/* Navigation Section */
+.nav-bar {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.nav-bar a {
   text-decoration: none;
-  margin-left: 1em;
+  color: #ffffff;
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+  padding-bottom: 5px;
+  border-bottom: 2px solid transparent;
+}
+
+.nav-bar a:hover {
+  color: #C5A059;
+  border-bottom: 2px solid #C5A059;
+}
+
+/* Icons Section */
+.icon-group {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  gap: 25px;
+  align-items: center;
+}
+
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.search-input {
+  width: 0;
+  opacity: 0;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  padding: 5px 0;
+  border-radius: 4px;
+  outline: none;
+  transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif;
+}
+
+.search-wrapper.active {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 5px 15px;
+  border-radius: 20px;
+}
+
+.search-wrapper.active .search-input {
+  width: 200px;
+  opacity: 1;
+  padding: 5px 10px;
+}
+
+.icon-group a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.icon {
+  font-size: 1.3rem;
+  color: #ffffff;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.icon:hover {
+  color: #C5A059;
+  transform: scale(1.1);
+}
+
+.close-search {
+  font-size: 1.2rem;
+  color: #C5A059;
+}
+
+.cart-icon-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .header {
+    flex-direction: column;
+    padding: 15px 20px;
+    gap: 15px;
+  }
+
+  .nav-bar {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .icon-group {
+    width: 100%;
+    justify-content: center;
+    gap: 30px;
+  }
+
+  .logo {
+    height: 55px;
+  }
 }

@@ -92,7 +92,7 @@ const Footer = () => {
 
       {/* Copyright Bar */}
       <div className="footer-bottom">
-        <p>© {new Date().getFullYear()}All rights reserved.</p>
+        <p>© {new Date().getFullYear()} Spice Harvest Co. All rights reserved.</p>
       </div>
     </footer>
   );

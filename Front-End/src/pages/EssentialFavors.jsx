@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './EssentialFavors.css';
 
 import oilRose from '../assets/oil_rose.png';
@@ -15,6 +16,7 @@ import oilSandalwood from '../assets/oil_sandalwood.jpg';
 import oilClove from '../assets/oil_clove.jpg';
 
 const EssentialFavors = () => {
+    const navigate = useNavigate();
 
     const essentialOils = [
         {
@@ -116,7 +118,7 @@ const EssentialFavors = () => {
     ];
 
     const handleAddToCart = (item) => {
-        alert(`${item.name} added to cart!`);
+        navigate("/cart");
     };
 
     const handleBuyNow = (item) => {
