@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useCart } from '../context/CartContext';
 import './BusinessGifting.css';
 import goldenTea from '../assets/golden-turmeric-tea.jpg';
 
 const BusinessGifting = () => {
     const navigate = useNavigate();
+    const { addToCart } = useCart();
     const [selectedGift, setSelectedGift] = useState(null);
 
     // Dummy Data for Gift Packs
@@ -74,13 +76,16 @@ const BusinessGifting = () => {
         setSelectedGift(null);
     };
 
-    const handleAddToCart = () => {
-        navigate("/cart");
+    const handleAddToCart = async () => {
+        const success = await addToCart(selectedGift.id, 1);
+        if (success) {
+            alert(`${selectedGift.name} added to cart!`);
+        }
         closeModal();
     };
 
     const handleBuyNow = () => {
-        alert(`Proceeding to buy ${selectedGift.name}!`);
+        navigate('/payment');
         closeModal();
     };
 

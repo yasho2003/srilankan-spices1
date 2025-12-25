@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useCart } from '../context/CartContext';
 import './EssentialFavors.css';
 
 import oilRose from '../assets/oil_rose.png';
@@ -17,6 +18,7 @@ import oilClove from '../assets/oil_clove.jpg';
 
 const EssentialFavors = () => {
     const navigate = useNavigate();
+    const { addToCart } = useCart();
 
     const essentialOils = [
         {
@@ -117,12 +119,15 @@ const EssentialFavors = () => {
         }
     ];
 
-    const handleAddToCart = (item) => {
-        navigate("/cart");
+    const handleAddToCart = async (item) => {
+        const success = await addToCart(item.id, 1);
+        if (success) {
+            alert(`${item.name} added to cart!`);
+        }
     };
 
-    const handleBuyNow = (item) => {
-        alert(`Proceeding to checkout for ${item.name}!`);
+    const handleBuyNow = (item, quantity) => {
+        navigate('/payment', { state: { item, quantity } });
     };
 
     return (

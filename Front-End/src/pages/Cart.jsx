@@ -1,42 +1,30 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Cart.css';
 import { FiTrash2, FiMinus, FiPlus, FiArrowLeft } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
+import { useCart } from '../context/CartContext';
 
 const Cart = () => {
     const navigate = useNavigate();
+    const { cartItems, removeFromCart, loading } = useCart();
 
-    // Minimalistic placeholder cart data since backend isn't ready
-    const [cartItems, setCartItems] = useState([
-        {
-            id: 1,
-            name: "Ceylon Cinnamon Sticks",
-            price: 15.00,
-            quantity: 2,
-            image: "https://images.unsplash.com/photo-1599940824399-b87987cb5733?q=80&w=1000&auto=format&fit=crop"
-        },
-        {
-            id: 2,
-            name: "Black Pepper Corns",
-            price: 12.00,
-            quantity: 1,
-            image: "https://images.unsplash.com/photo-1596450514735-310344b4cdea?q=80&w=1000&auto=format&fit=crop"
-        }
-    ]);
-
+    // Note: Quantity update would require backend endpoint - for now just showing current quantity
     const updateQuantity = (id, delta) => {
-        setCartItems(cartItems.map(item =>
-            item.id === id ? { ...item, quantity: Math.max(1, item.quantity + delta) } : item
-        ));
+        // TODO: Implement quantity update API call
+        console.log('Update quantity not yet implemented');
     };
 
-    const removeItem = (id) => {
-        setCartItems(cartItems.filter(item => item.id !== id));
+    const handleRemoveItem = async (id) => {
+        await removeFromCart(id);
     };
 
-    const subtotal = cartItems.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+    const subtotal = cartItems.reduce((acc, item) => acc + (item.product?.price || 0) * item.quantity, 0);
     const shipping = 5.00;
     const total = subtotal + shipping;
+
+    const handleCheckout = () => {
+        navigate('/payment');
+    };
 
     return (
         <div className="cart-page">
@@ -54,11 +42,11 @@ const Cart = () => {
                                 {cartItems.map(item => (
                                     <div key={item.id} className="cart-item">
                                         <div className="item-image">
-                                            <img src={item.image} alt={item.name} />
+                                            <img src={item.product?.imageUrl || 'https://via.placeholder.com/100'} alt={item.product?.name} />
                                         </div>
                                         <div className="item-details">
-                                            <h3>{item.name}</h3>
-                                            <p className="item-price-each">${item.price.toFixed(2)} / unit</p>
+                                            <h3>{item.product?.name}</h3>
+                                            <p className="item-price-each">${item.product?.price?.toFixed(2)} / unit</p>
                                         </div>
                                         <div className="item-quantity">
                                             <button onClick={() => updateQuantity(item.id, -1)}><FiMinus /></button>
@@ -66,9 +54,9 @@ const Cart = () => {
                                             <button onClick={() => updateQuantity(item.id, 1)}><FiPlus /></button>
                                         </div>
                                         <div className="item-total">
-                                            ${(item.price * item.quantity).toFixed(2)}
+                                            ${((item.product?.price || 0) * item.quantity).toFixed(2)}
                                         </div>
-                                        <button className="remove-btn" onClick={() => removeItem(item.id)}>
+                                        <button className="remove-btn" onClick={() => handleRemoveItem(item.id)}>
                                             <FiTrash2 />
                                         </button>
                                     </div>
@@ -89,7 +77,7 @@ const Cart = () => {
                                     <span>Total</span>
                                     <span>${total.toFixed(2)}</span>
                                 </div>
-                                <button className="checkout-btn">Proceed to Checkout</button>
+                                <button className="checkout-btn" onClick={handleCheckout}>Proceed to Checkout</button>
                                 <p className="secure-text">🛡️ Secure Payment & Shipping</p>
                             </div>
                         </>

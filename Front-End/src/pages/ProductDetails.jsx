@@ -1,4 +1,5 @@
 import { useParams, useNavigate } from "react-router-dom";
+import { useCart } from "../context/CartContext";
 
 const products = [
   { id: 1, name: "Ceylon Cinnamon", price: 1200, desc: "Pure Ceylon cinnamon sticks." },
@@ -9,10 +10,15 @@ const products = [
 function ProductDetails() {
   const { id } = useParams();
   const navigate = useNavigate();
+  const { addToCart } = useCart();
   const product = products.find((p) => p.id === Number(id));
 
-  const handleAddToCart = () => {
-    navigate("/cart");
+  const handleAddToCart = async () => {
+    const success = await addToCart(product.id, 1);
+    if (success) {
+      alert(`${product.name} added to cart!`);
+      navigate("/cart");
+    }
   };
 
   return (

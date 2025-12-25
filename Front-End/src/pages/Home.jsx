@@ -1,8 +1,10 @@
 import { Link, useNavigate } from "react-router-dom";
+import { useCart } from "../context/CartContext";
 import "./Home.css";
 
 function Home() {
   const navigate = useNavigate();
+  const { addToCart } = useCart();
 
   const featuredSpices = [
     {
@@ -44,14 +46,17 @@ function Home() {
       id: 6,
       name: "Nutmeg (සාදික්කා)",
       description: "Warm, nutty flavor perfect for baking and savory dishes.",
-      image: "/images/spice-nutmeg.png", 
+      image: "/images/spice-nutmeg.png",
       price: "$18.00",
     },
   ];
 
-  const handleAddToCart = (spice) => {
-    // Navigate to cart - In a real app, dispatch to context/store first
-    navigate("/cart");
+  const handleAddToCart = async (spice) => {
+    const success = await addToCart(spice.id, 1);
+    if (success) {
+      // Show success feedback (optional: add toast notification)
+      alert(`${spice.name} added to cart!`);
+    }
   };
 
   const handleBuyNow = (spice) => {
