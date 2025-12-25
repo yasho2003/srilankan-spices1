@@ -3,6 +3,7 @@ package com.harvest.spiceharvest.controller;
 import com.harvest.spiceharvest.model.Product;
 import com.harvest.spiceharvest.service.ProductService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,7 +23,7 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")
-    public Product getProductById(@PathVariable Long id) {
+    public Product getProductById(@PathVariable @NonNull Long id) {
         return productService.getProductById(id)
                 .orElseThrow(() -> new RuntimeException("Product not found"));
     }

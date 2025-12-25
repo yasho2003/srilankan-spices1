@@ -5,6 +5,7 @@ import com.harvest.spiceharvest.model.Product;
 import com.harvest.spiceharvest.repository.CartItemRepository;
 import com.harvest.spiceharvest.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,12 +18,12 @@ public class CartService {
     private final CartItemRepository cartItemRepository;
     private final ProductRepository productRepository;
 
-    public List<CartItem> getCartItems(String sessionId) {
+    public List<CartItem> getCartItems(@NonNull String sessionId) {
         return cartItemRepository.findBySessionId(sessionId);
     }
 
     @Transactional
-    public CartItem addToCart(String sessionId, Long productId, Integer quantity) {
+    public CartItem addToCart(@NonNull String sessionId, @NonNull Long productId, @NonNull Integer quantity) {
         Optional<CartItem> existingItem = cartItemRepository.findBySessionIdAndProductId(sessionId, productId);
 
         if (existingItem.isPresent()) {
@@ -41,12 +42,12 @@ public class CartService {
     }
 
     @Transactional
-    public void removeFromCart(Long cartItemId) {
+    public void removeFromCart(@NonNull Long cartItemId) {
         cartItemRepository.deleteById(cartItemId);
     }
 
     @Transactional
-    public void clearCart(String sessionId) {
+    public void clearCart(@NonNull String sessionId) {
         cartItemRepository.deleteBySessionId(sessionId);
     }
 }

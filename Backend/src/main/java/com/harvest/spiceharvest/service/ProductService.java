@@ -3,6 +3,7 @@ package com.harvest.spiceharvest.service;
 import com.harvest.spiceharvest.model.Product;
 import com.harvest.spiceharvest.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,7 +18,7 @@ public class ProductService {
         return productRepository.findAll();
     }
 
-    public Optional<Product> getProductById(Long id) {
+    public Optional<Product> getProductById(@NonNull Long id) {
         return productRepository.findById(id);
     }
 
@@ -29,7 +30,7 @@ public class ProductService {
         return productRepository.findByNameContainingIgnoreCase(query);
     }
 
-    public Product saveProduct(Product product) {
+    public Product saveProductById(@NonNull Long id, @NonNull Product product) {
         return productRepository.save(product);
     }
 }
