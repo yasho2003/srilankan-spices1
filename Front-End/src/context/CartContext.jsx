@@ -1,22 +1,14 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import * as cartService from '../services/cartService';
+import { CartContext } from './CartContextDef';
 
-const CartContext = createContext();
-
-export const useCart = () => {
-    const context = useContext(CartContext);
-    if (!context) {
-        throw new Error('useCart must be used within a CartProvider');
-    }
-    return context;
-};
 
 export const CartProvider = ({ children }) => {
     const [cartItems, setCartItems] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
-    // Fetch cart items on mount
+
     useEffect(() => {
         fetchCart();
     }, []);
@@ -40,7 +32,7 @@ export const CartProvider = ({ children }) => {
         setError(null);
         try {
             await cartService.addToCart(productId, quantity);
-            await fetchCart(); // Refresh cart
+            await fetchCart();
             return true;
         } catch (err) {
             setError('Failed to add item to cart');
@@ -56,7 +48,7 @@ export const CartProvider = ({ children }) => {
         setError(null);
         try {
             await cartService.removeFromCart(cartItemId);
-            await fetchCart(); // Refresh cart
+            await fetchCart();
             return true;
         } catch (err) {
             setError('Failed to remove item from cart');

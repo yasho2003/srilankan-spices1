@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useCart } from "../context/CartContext";
+import { useCart } from "../context/useCart";
 import "./Home.css";
 
 function Home() {
@@ -54,12 +54,14 @@ function Home() {
   const handleAddToCart = async (spice) => {
     const success = await addToCart(spice.id, 1);
     if (success) {
-      // Show success feedback (optional: add toast notification)
+
       alert(`${spice.name} added to cart!`);
     }
   };
 
-  const handleBuyNow = (spice) => {
+  const handleBuyNow = async (spice) => {
+    // Add to cart before requesting payment
+    await addToCart(spice.id, 1);
     // Navigate to payment/checkout
     navigate("/payment");
   };

@@ -2,16 +2,26 @@ import React from 'react';
 import './Cart.css';
 import { FiTrash2, FiMinus, FiPlus, FiArrowLeft } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
-import { useCart } from '../context/CartContext';
+import { useCart } from '../context/useCart';
 
 const Cart = () => {
     const navigate = useNavigate();
     const { cartItems, removeFromCart, loading } = useCart();
 
+    if (loading) {
+        return (
+            <div className="cart-page">
+                <div className="cart-container">
+                    <h1>Loading your cart...</h1>
+                </div>
+            </div>
+        );
+    }
+
     // Note: Quantity update would require backend endpoint - for now just showing current quantity
     const updateQuantity = (id, delta) => {
         // TODO: Implement quantity update API call
-        console.log('Update quantity not yet implemented');
+        console.log(`Update quantity for item ${id} with delta ${delta} not yet implemented`);
     };
 
     const handleRemoveItem = async (id) => {
@@ -21,7 +31,7 @@ const Cart = () => {
     const subtotal = cartItems.reduce((acc, item) => acc + (item.product?.price || 0) * item.quantity, 0);
     const shipping = 5.00;
     const total = subtotal + shipping;
-
+    
     const handleCheckout = () => {
         navigate('/payment');
     };
