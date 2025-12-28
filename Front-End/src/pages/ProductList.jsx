@@ -1,9 +1,11 @@
 import { Link, useLocation } from "react-router-dom";
 import { useCart } from "../context/useCart";
 import { products } from "../data/products";
+import { useCurrency } from "../context/CurrencyContext";
 
 function ProductList() {
   const { addToCart } = useCart();
+  const { formatPrice } = useCurrency();
 
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
@@ -34,7 +36,7 @@ function ProductList() {
             <div key={p.id} className="product-card" style={{ border: "1px solid #eee", padding: "20px", borderRadius: '12px', textAlign: 'center' }}>
               <img src={p.image} alt={p.name} style={{ width: '100%', height: '200px', objectFit: 'cover', borderRadius: '8px', marginBottom: '15px' }} />
               <h3>{p.name}</h3>
-              <p style={{ fontWeight: 'bold', color: '#C5A059' }}>Rs. {p.price}</p>
+              <p style={{ fontWeight: 'bold', color: '#C5A059' }}>{formatPrice(p.price)}</p>
 
               <Link to={`/products/${p.id}`}>
                 <button style={{ background: '#000', color: '#fff', border: 'none', padding: '10px 20px', borderRadius: '5px', cursor: 'pointer', marginRight: '10px' }}>

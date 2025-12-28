@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../context/useCart';
+import { useCurrency } from '../context/CurrencyContext';
 import './EssentialFavors.css';
 
 import { products } from '../data/products';
@@ -8,6 +9,7 @@ import { products } from '../data/products';
 const EssentialFavors = () => {
     const navigate = useNavigate();
     const { addToCart } = useCart();
+    const { formatPrice } = useCurrency();
 
     const essentialOils = products.filter(p => p.category === 'oil');
 
@@ -45,7 +47,7 @@ const EssentialFavors = () => {
                                 <h3>{oil.name}</h3>
                                 <p>{oil.description}</p>
                                 <div className="oil-price-row">
-                                    <span className="oil-price">${oil.price.toFixed(2)}</span>
+                                    <span className="oil-price">{formatPrice(oil.price)}</span>
                                     <span className="oil-size">{oil.size}</span>
                                 </div>
                                 <div className="oil-actions">

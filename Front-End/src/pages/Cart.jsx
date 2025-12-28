@@ -1,13 +1,15 @@
 import React from 'react';
 import './Cart.css';
-import { FiTrash2, FiMinus, FiPlus, FiArrowLeft } from 'react-icons/fi';
+import { FiTrash2, FiMinus, FiPlus, FiArrowLeft } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../context/useCart';
 import { products } from '../data/products';
+import { useCurrency } from '../context/CurrencyContext';
 
 const Cart = () => {
     const navigate = useNavigate();
-    const { cartItems, removeFromCart, loading } = useCart();
+    const { cartItems, removeFromCart, updateQuantity, loading } = useCart();
+    const { formatPrice } = useCurrency();
 
     if (loading) {
         return (
@@ -18,7 +20,7 @@ const Cart = () => {
             </div>
         );
     }
-    
+
     const enhancedCartItems = cartItems.map(item => {
         const product = products.find(p => p.id === item.product_id);
         return {
@@ -27,9 +29,10 @@ const Cart = () => {
         };
     });
 
-    // Note: Quantity update would require backend endpoint - for now just showing current quantity
-    const updateQuantity = (id, delta) => {
-        console.log(`Update quantity for item ${id} with delta ${delta} not yet implemented`);
+    const handleUpdateQuantity = async (productId, currentQuantity, delta) => {
+        const newQuantity = currentQuantity + delta;
+        if (newQuantity < 1) return;
+        await updateQuantity(productId, newQuantity);
     };
 
     const handleRemoveItem = async (product_id) => {
@@ -37,7 +40,7 @@ const Cart = () => {
     };
 
     const subtotal = enhancedCartItems.reduce((acc, item) => acc + (item.price || 0) * item.quantity, 0);
-    const shipping = 5.00;
+    const shipping = 15.00;
     const total = subtotal + shipping;
 
     const handleCheckout = () => {
@@ -64,15 +67,15 @@ const Cart = () => {
                                         </div>
                                         <div className="item-details">
                                             <h3>{item.name}</h3>
-                                            <p className="item-price-each">Rs. {(item.price || 0).toFixed(2)} / unit</p>
+                                            <p className="item-price-each">{formatPrice(item.price || 0)} / unit</p>
                                         </div>
                                         <div className="item-quantity">
-                                            <button onClick={() => updateQuantity(item.product_id, -1)}><FiMinus /></button>
+                                            <button onClick={() => handleUpdateQuantity(item.product_id, item.quantity, -1)}><FiMinus /></button>
                                             <span>{item.quantity}</span>
-                                            <button onClick={() => updateQuantity(item.product_id, 1)}><FiPlus /></button>
+                                            <button onClick={() => handleUpdateQuantity(item.product_id, item.quantity, 1)}><FiPlus /></button>
                                         </div>
                                         <div className="item-total">
-                                            Rs. {((item.price || 0) * item.quantity).toFixed(2)}
+                                            {formatPrice((item.price || 0) * item.quantity)}
                                         </div>
                                         <button className="remove-btn" onClick={() => handleRemoveItem(item.product_id)}>
                                             <FiTrash2 />
@@ -85,15 +88,15 @@ const Cart = () => {
                                 <h2>Order Summary</h2>
                                 <div className="summary-row">
                                     <span>Subtotal</span>
-                                    <span>Rs. {subtotal.toFixed(2)}</span>
+                                    <span>{formatPrice(subtotal)}</span>
                                 </div>
                                 <div className="summary-row">
                                     <span>Shipping</span>
-                                    <span>Rs. {shipping.toFixed(2)}</span>
+                                    <span>{formatPrice(shipping)}</span>
                                 </div>
                                 <div className="summary-row total">
                                     <span>Total</span>
-                                    <span>Rs. {total.toFixed(2)}</span>
+                                    <span>{formatPrice(total)}</span>
                                 </div>
                                 <button className="checkout-btn" onClick={handleCheckout}>Proceed to Checkout</button>
                                 <p className="secure-text">🛡️ Secure Payment & Shipping</p>

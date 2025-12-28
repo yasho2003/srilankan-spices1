@@ -10,7 +10,7 @@ import oilCinnamon from '../assets/oil_cinnamon.jpg';
 import oilVanilla from '../assets/oil_vanilla.jpg';
 import oilSandalwood from '../assets/oil_sandalwood.jpg';
 import oilClove from '../assets/oil_clove.jpg';
-
+    //product list
 export const products = [
     { id: 1, name: "Ceylon Cinnamon Sticks (කුරුඳු) 100g", price: 2000, category: "spice", image: "https://images.unsplash.com/photo-1587131782738-de30ea91a542?q=80&w=880&auto=format&fit=crop" },
     { id: 2, name: "Black Pepper seed (ගම්මිරිස් ඇට) 100g", price: 1000, category: "spice", image: "https://images.unsplash.com/photo-1655662844262-7bb61527c0d8?q=80&w=627&auto=format&fit=crop" },
@@ -33,16 +33,16 @@ export const products = [
     { id: 19, name: "Mustard Cream (අබ ක්‍රීම්) 100g", price: 2000, category: "spice", image: "https://media.istockphoto.com/id/1536246260/photo/mustard-sauce-in-bowl-on-white-background.jpg?s=612x612&w=0&k=20&c=WEd1W-2O0lcULonTNcYtBkgXMATOje74mi9yOH37kW8=" },
     { id: 20, name: "Star Anise (බුරියානිමල්) 100g", price: 3100, category: "spice", image: "https://images.unsplash.com/photo-1642255485146-bc28a517dcfb?w=600&auto=format&fit=crop&q=60" },
     // Essential Oils (IDs 21-32)
-    { id: 21, name: "Pure Rose Essential Oil", price: 18.00, size: "15ml", category: "oil", image: oilRose, description: "A timeless floral scent known for its calming properties. Perfect for aromatherapy and self-care." },
-    { id: 22, name: "Lavender Serenity", price: 15.00, size: "15ml", category: "oil", image: oilLavender, description: "Relax and unwind with the soothing aroma of fresh lavender fields." },
-    { id: 23, name: "Lily Essence", price: 20.00, size: "10ml", category: "oil", image: oilLily, description: "A delicate and sweet fragrance that captures the essence of spring bloooms." },
-    { id: 24, name: "Jasmine Absolute", price: 22.00, size: "10ml", category: "oil", image: oilJasmine, description: "Exotic and rich, Jasmine oil is perfect for uplifting your mood and spirit." },
-    { id: 25, name: "Zesty Lemon", price: 12.00, size: "15ml", category: "oil", image: oilLemon, description: "Bright, refreshing, and energetic. A burst of citrus to revitalize your space." },
-    { id: 26, name: "Fresh Peppermint", price: 14.00, size: "15ml", category: "oil", image: oilPeppermint, description: "Cool and invigorating. Excellent for focus and clearing the mind." },
-    { id: 27, name: "Eucalyptus Clarity", price: 14.00, size: "15ml", category: "oil", image: oilEucalyptus, description: "A crisp, purifying scent that promotes deep breathing and wellness." },
-    { id: 28, name: "Chamomile Calm", price: 19.00, size: "10ml", category: "oil", image: oilChamomile, description: "Gentle and soothing. Ideal for establishing a peaceful bedtime routine." },
-    { id: 29, name: "Ceylon Cinnamon", price: 16.00, size: "15ml", category: "oil", image: oilCinnamon, description: "Warm, spicy, and inviting. The true scent of Sri Lankan heritage." },
-    { id: 30, name: "Pure Vanilla", price: 25.00, size: "10ml", category: "oil", image: oilVanilla, description: "Sweet, comforting, and classic. A familiar aroma that feels like home." },
-    { id: 31, name: "Sacred Sandalwood", price: 28.00, size: "5ml", category: "oil", image: oilSandalwood, description: "Woody, earthy, and grounding. A luxurious oil for meditation and peace." },
-    { id: 32, name: "Spicy Clove", price: 15.00, size: "15ml", category: "oil", image: oilClove, description: "Strong and stimulating. A powerful spice oil with a rich, historical aroma." },
+    { id: 21, name: "Pure Rose Essential Oil", price: 800.00, size: "15ml", category: "oil", image: oilRose, description: "A timeless floral scent known for its calming properties. Perfect for aromatherapy and self-care." },
+    { id: 22, name: "Lavender Serenity", price: 1000.00, size: "15ml", category: "oil", image: oilLavender, description: "Relax and unwind with the soothing aroma of fresh lavender fields." },
+    { id: 23, name: "Lily Essence", price: 1000.00, size: "10ml", category: "oil", image: oilLily, description: "A delicate and sweet fragrance that captures the essence of spring bloooms." },
+    { id: 24, name: "Jasmine Absolute", price: 1000.00, size: "10ml", category: "oil", image: oilJasmine, description: "Exotic and rich, Jasmine oil is perfect for uplifting your mood and spirit." },
+    { id: 25, name: "Zesty Lemon", price: 800.00, size: "15ml", category: "oil", image: oilLemon, description: "Bright, refreshing, and energetic. A burst of citrus to revitalize your space." },
+    { id: 26, name: "Fresh Peppermint", price: 800.00, size: "15ml", category: "oil", image: oilPeppermint, description: "Cool and invigorating. Excellent for focus and clearing the mind." },
+    { id: 27, name: "Eucalyptus Clarity", price: 900.00, size: "15ml", category: "oil", image: oilEucalyptus, description: "A crisp, purifying scent that promotes deep breathing and wellness." },
+    { id: 28, name: "Chamomile Calm", price: 900.00, size: "10ml", category: "oil", image: oilChamomile, description: "Gentle and soothing. Ideal for establishing a peaceful bedtime routine." },
+    { id: 29, name: "Ceylon Cinnamon", price: 1600.00, size: "15ml", category: "oil", image: oilCinnamon, description: "Warm, spicy, and inviting. The true scent of Sri Lankan heritage." },
+    { id: 30, name: "Pure Vanilla", price: 800.00, size: "10ml", category: "oil", image: oilVanilla, description: "Sweet, comforting, and classic. A familiar aroma that feels like home." },
+    { id: 31, name: "Sacred Sandalwood", price: 800.00, size: "5ml", category: "oil", image: oilSandalwood, description: "Woody, earthy, and grounding. A luxurious oil for meditation and peace." },
+    { id: 32, name: "Spicy Clove", price: 1500.00, size: "15ml", category: "oil", image: oilClove, description: "Strong and stimulating. A powerful spice oil with a rich, historical aroma." },
 ];

@@ -59,6 +59,23 @@ export const CartProvider = ({ children }) => {
         }
     };
 
+    const updateQuantity = async (productId, quantity) => {
+        if (quantity < 1) return; // Prevent quantity < 1
+        setLoading(true);
+        setError(null);
+        try {
+            await cartService.updateCartQuantity(productId, quantity);
+            await fetchCart();
+            return true;
+        } catch (err) {
+            setError('Failed to update quantity');
+            console.error(err);
+            return false;
+        } finally {
+            setLoading(false);
+        }
+    };
+
     const clearCart = async () => {
         setLoading(true);
         setError(null);
@@ -90,6 +107,7 @@ export const CartProvider = ({ children }) => {
         error,
         addToCart,
         removeFromCart,
+        updateQuantity,
         clearCart,
         fetchCart,
     };

@@ -2,8 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Footer.css';
 import { FaPhoneAlt, FaEnvelope, FaFacebookF, FaPinterestP, FaInstagram, FaTiktok } from 'react-icons/fa'; // Requires: npm install react-icons
+import { useCurrency } from '../context/CurrencyContext';
 
 const Footer = () => {
+  const { currency, setCurrency } = useCurrency();
+
   return (
     <footer className="footer">
 
@@ -82,9 +85,13 @@ const Footer = () => {
           </div>
 
           <h4>Currency</h4>
-          <select className="footer-select">
-            <option>United States (USD $)</option>
-            <option>Sri Lanka (LKR Rs.)</option>
+          <select
+            className="footer-select"
+            value={currency}
+            onChange={(e) => setCurrency(e.target.value)}
+          >
+            <option value="USD">United States (USD $)</option>
+            <option value="LKR">Sri Lanka (LKR Rs.)</option>
           </select>
         </div>
 

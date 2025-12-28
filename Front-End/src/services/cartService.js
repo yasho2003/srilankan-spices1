@@ -60,6 +60,27 @@ export const removeFromCart = async (cartItemId) => {
     }
 };
 
+// Update cart item quantity
+export const updateCartQuantity = async (productId, quantity) => {
+    try {
+        const response = await fetch(`${API_BASE_URL}/cart/update`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                id: productId,
+                quantity: quantity
+            }),
+        });
+        if (!response.ok) throw new Error('Failed to update cart item quantity');
+        return await response.json();
+    } catch (error) {
+        console.error('Error updating cart quantity:', error);
+        throw error;
+    }
+};
+
 // Clear entire cart
 export const clearCart = async () => {
     const sessionId = getSessionId();

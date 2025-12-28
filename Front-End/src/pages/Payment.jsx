@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../context/useCart';
+import { useCurrency } from '../context/CurrencyContext';
 import './Payment.css';
 
 const Payment = () => {
     const navigate = useNavigate();
     const { cartItems, cartTotal } = useCart();
+    const { formatPrice } = useCurrency();
     const [formData, setFormData] = useState({
         fullName: '',
         email: '',
@@ -17,7 +19,7 @@ const Payment = () => {
         paymentMethod: 'card'
     });
 
-    const shipping = 5.00;
+    const shipping = 15.00;
     const total = cartTotal + shipping;
 
     const handleInputChange = (e) => {
@@ -52,7 +54,7 @@ const Payment = () => {
                                         <span className="item-qty">x{item.quantity}</span>
                                     </div>
                                     <span className="item-price">
-                                        ${((item.product?.price || 0) * item.quantity).toFixed(2)}
+                                        {formatPrice(((item.product?.price || 0) * item.quantity))}
                                     </span>
                                 </div>
                             ))}
@@ -61,15 +63,15 @@ const Payment = () => {
                         <div className="summary-totals">
                             <div className="summary-row">
                                 <span>Subtotal</span>
-                                <span>${cartTotal.toFixed(2)}</span>
+                                <span>{formatPrice(cartTotal)}</span>
                             </div>
                             <div className="summary-row">
                                 <span>Shipping</span>
-                                <span>${shipping.toFixed(2)}</span>
+                                <span>{formatPrice(shipping)}</span>
                             </div>
                             <div className="summary-row total">
                                 <span>Total</span>
-                                <span>${total.toFixed(2)}</span>
+                                <span>{formatPrice(total)}</span>
                             </div>
                         </div>
                     </div>
@@ -200,7 +202,7 @@ const Payment = () => {
                             </div>
 
                             <button type="submit" className="place-order-btn">
-                                Place Order - ${total.toFixed(2)}
+                                Place Order - {formatPrice(total)}
                             </button>
                         </form>
                     </div>

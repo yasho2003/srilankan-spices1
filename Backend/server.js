@@ -42,6 +42,19 @@ app.delete("/api/cart/:id", (req, res) => {
   res.json("Item removed ❌");
 });
 
+// UPDATE CART QUANTITY
+app.put("/api/cart/update", (req, res) => {
+  const { id, quantity } = req.body;
+  const sql = "UPDATE cart SET quantity = ? WHERE product_id = ?";
+  db.query(sql, [quantity, id], (err, result) => {
+    if (err) {
+      console.log(err);
+      return res.status(500).json(err);
+    }
+    res.json({ message: "Cart updated ✅" });
+  });
+});
+
 app.listen(5000, () => {
   console.log("Server running on port 5000 🚀");
 });
