@@ -27,11 +27,11 @@ export const CartProvider = ({ children }) => {
         }
     };
 
-    const addToCart = async (productId, quantity = 1) => {
+    const addToCart = async (item) => {
         setLoading(true);
         setError(null);
         try {
-            await cartService.addToCart(productId, quantity);
+            await cartService.addToCart(item);
             await fetchCart();
             return true;
         } catch (err) {
@@ -78,7 +78,7 @@ export const CartProvider = ({ children }) => {
     // Calculate cart totals
     const cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
     const cartTotal = cartItems.reduce(
-        (total, item) => total + (item.product?.price || 0) * item.quantity,
+        (total, item) => total + (item.price || 0) * item.quantity,
         0
     );
 

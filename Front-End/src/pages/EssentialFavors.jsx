@@ -3,124 +3,16 @@ import { useNavigate } from 'react-router-dom';
 import { useCart } from '../context/useCart';
 import './EssentialFavors.css';
 
-import oilRose from '../assets/oil_rose.png';
-import oilLavender from '../assets/oil_lavender.jpg';
-import oilLily from '../assets/oil_lily.png';
-import oilJasmine from '../assets/oil_jasmine.png';
-import oilLemon from '../assets/oil_lemon.jpg';
-import oilPeppermint from '../assets/oil_peppermint.jpg';
-import oilEucalyptus from '../assets/oil_eucalyptus.jpg';
-import oilChamomile from '../assets/oil_chamomile.jpg';
-import oilCinnamon from '../assets/oil_cinnamon.jpg';
-import oilVanilla from '../assets/oil_vanilla.jpg';
-import oilSandalwood from '../assets/oil_sandalwood.jpg';
-import oilClove from '../assets/oil_clove.jpg';
+import { products } from '../data/products';
 
 const EssentialFavors = () => {
     const navigate = useNavigate();
     const { addToCart } = useCart();
 
-    const essentialOils = [
-        {
-            id: 1,
-            name: "Pure Rose Essential Oil",
-            image: oilRose,
-            description: "A timeless floral scent known for its calming properties. Perfect for aromatherapy and self-care.",
-            price: "$18.00",
-            size: "15ml"
-        },
-        {
-            id: 2,
-            name: "Lavender Serenity",
-            image: oilLavender,
-            description: "Relax and unwind with the soothing aroma of fresh lavender fields.",
-            price: "$15.00",
-            size: "15ml"
-        },
-        {
-            id: 3,
-            name: "Lily Essence",
-            image: oilLily,
-            description: "A delicate and sweet fragrance that captures the essence of spring bloooms.",
-            price: "$20.00",
-            size: "10ml"
-        },
-        {
-            id: 4,
-            name: "Jasmine Absolute",
-            image: oilJasmine,
-            description: "Exotic and rich, Jasmine oil is perfect for uplifting your mood and spirit.",
-            price: "$22.00",
-            size: "10ml"
-        },
-        {
-            id: 5,
-            name: "Zesty Lemon",
-            image: oilLemon,
-            description: "Bright, refreshing, and energetic. A burst of citrus to revitalize your space.",
-            price: "$12.00",
-            size: "15ml"
-        },
-        {
-            id: 6,
-            name: "Fresh Peppermint",
-            image: oilPeppermint,
-            description: "Cool and invigorating. Excellent for focus and clearing the mind.",
-            price: "$14.00",
-            size: "15ml"
-        },
-        {
-            id: 7,
-            name: "Eucalyptus Clarity",
-            image: oilEucalyptus,
-            description: "A crisp, purifying scent that promotes deep breathing and wellness.",
-            price: "$14.00",
-            size: "15ml"
-        },
-        {
-            id: 8,
-            name: "Chamomile Calm",
-            image: oilChamomile,
-            description: "Gentle and soothing. Ideal for establishing a peaceful bedtime routine.",
-            price: "$19.00",
-            size: "10ml"
-        },
-        {
-            id: 9,
-            name: "Ceylon Cinnamon",
-            image: oilCinnamon,
-            description: "Warm, spicy, and inviting. The true scent of Sri Lankan heritage.",
-            price: "$16.00",
-            size: "15ml"
-        },
-        {
-            id: 10,
-            name: "Pure Vanilla",
-            image: oilVanilla,
-            description: "Sweet, comforting, and classic. A familiar aroma that feels like home.",
-            price: "$25.00",
-            size: "10ml"
-        },
-        {
-            id: 11,
-            name: "Sacred Sandalwood",
-            image: oilSandalwood,
-            description: "Woody, earthy, and grounding. A luxurious oil for meditation and peace.",
-            price: "$28.00",
-            size: "5ml"
-        },
-        {
-            id: 12,
-            name: "Spicy Clove",
-            image: oilClove,
-            description: "Strong and stimulating. A powerful spice oil with a rich, historical aroma.",
-            price: "$15.00",
-            size: "15ml"
-        }
-    ];
+    const essentialOils = products.filter(p => p.category === 'oil');
 
     const handleAddToCart = async (item) => {
-        const success = await addToCart(item.id, 1);
+        const success = await addToCart(item);
         if (success) {
             alert(`${item.name} added to cart!`);
         }
@@ -153,7 +45,7 @@ const EssentialFavors = () => {
                                 <h3>{oil.name}</h3>
                                 <p>{oil.description}</p>
                                 <div className="oil-price-row">
-                                    <span className="oil-price">{oil.price}</span>
+                                    <span className="oil-price">${oil.price.toFixed(2)}</span>
                                     <span className="oil-size">{oil.size}</span>
                                 </div>
                                 <div className="oil-actions">

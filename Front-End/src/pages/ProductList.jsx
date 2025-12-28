@@ -1,29 +1,10 @@
 import { Link, useLocation } from "react-router-dom";
-
-const products = [
-  { id: 1, name: "Ceylon Cinnamon Sticks (කුරුඳු) 100g", price: 2000, image: "https://images.unsplash.com/photo-1587131782738-de30ea91a542?q=80&w=880&auto=format&fit=crop" },
-  { id: 2, name: "Black Pepper seed (ගම්මිරිස් ඇට) 100g", price: 1000, image: "https://images.unsplash.com/photo-1596483547432-613d96929972?q=80&w=880&auto=format&fit=crop" },
-  { id: 3, name: "Clove (කරාබුනැටි) 100g", price: 1400, image: "https://images.unsplash.com/photo-1563284560-eb0df734d619?q=80&w=880&auto=format&fit=crop" },
-  { id: 4, name: "Cardamom (කරදමුංගු) 100g", price: 1500, image: "https://images.unsplash.com/photo-1578848773950-8b1b3699c27d?q=80&w=880&auto=format&fit=crop" },
-  { id: 5, name: "Fennel (මහදුරු) 100g", price: 1600, image: "https://images.unsplash.com/photo-1615485925769-1c5c79375e2f?q=80&w=880&auto=format&fit=crop" },
-  { id: 6, name: "Ginger (ඉඟුරු) 100g", price: 1200, image: "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?q=80&w=880&auto=format&fit=crop" },
-  { id: 7, name: "Mustard (අබ) 100g", price: 1800, image: "https://images.unsplash.com/photo-1518977676000-4b361e38b0e8?q=80&w=880&auto=format&fit=crop" },
-  { id: 8, name: "Turmeric powder (කහ කුඩු) 100g", price: 1900, image: "https://images.unsplash.com/photo-1615485500704-8e99099d830c?q=80&w=880&auto=format&fit=crop" },
-  { id: 9, name: "Garam Masala (ගරම් මසාලා) 100g", price: 2000, image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=880&auto=format&fit=crop" },
-  { id: 10, name: "Coriander (කොත්තමල්ලි) 100g", price: 2000, image: "https://images.unsplash.com/photo-1558961363-5696d5573489?q=80&w=880&auto=format&fit=crop" },
-  { id: 11, name: "Cumin (සූදුරු) 100g", price: 1800, image: "https://images.unsplash.com/photo-1615485925769-1c5c79375e2f?q=80&w=880&auto=format&fit=crop" },
-  { id: 12, name: "Chilli Flakes (කෑලි මිරිස්) 100g", price: 1500, image: "https://images.unsplash.com/photo-1588636906646-c0c534433543?q=80&w=880&auto=format&fit=crop" },
-  { id: 13, name: "Nutmeg (සාදික්කා) 100g", price: 2400, image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=880&auto=format&fit=crop" },
-  { id: 14, name: "Fenugreek (උලුහාල්) 100g", price: 2200, image: "https://images.unsplash.com/photo-1615485925769-1c5c79375e2f?q=80&w=880&auto=format&fit=crop" },
-  { id: 15, name: "Chilli Powder (මිරිස් කුඩු) 100g", price: 1800, image: "https://images.unsplash.com/photo-1588636906646-c0c534433543?q=80&w=880&auto=format&fit=crop" },
-  { id: 16, name: "Black Pepper powder (ගම්මිරිස් කුඩු) 100g", price: 1200, image: "https://images.unsplash.com/photo-1596483547432-613d96929972?q=80&w=880&auto=format&fit=crop" },
-  { id: 17, name: "Curry Leaves Powder (කරපිංචා කුඩු) 100g", price: 1800, image: "https://images.unsplash.com/photo-1628189873339-382a931c8309?q=80&w=880&auto=format&fit=crop" },
-  { id: 18, name: "Cylon Cinnamon Powder (කුරුඳු කුඩු) 100g", price: 2500, image: "https://images.unsplash.com/photo-1587131782738-de30ea91a542?q=80&w=880&auto=format&fit=crop" },
-  { id: 19, name: "Mustard Cream (අබ ක්‍රීම්) 100g", price: 2000, image: "https://images.unsplash.com/photo-1518977676000-4b361e38b0e8?q=80&w=880&auto=format&fit=crop" },
-  { id: 20, name: "Star Anise (බුරියානිමල්) 100g", price: 3100, image: "https://images.unsplash.com/photo-1599940824399-b87987ced72a?q=80&w=880&auto=format&fit=crop" },
-];
+import { useCart } from "../context/useCart";
+import { products } from "../data/products";
 
 function ProductList() {
+  const { addToCart } = useCart();
+
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const searchQuery = searchParams.get("search") || "";
@@ -31,6 +12,15 @@ function ProductList() {
   const filteredProducts = products.filter((p) =>
     p.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
+
+  const handleAddToCart = async (product) => {
+    const success = await addToCart(product);
+    if (success) {
+      alert("Added to cart successfully!");
+    } else {
+      alert("Failed to add to cart.");
+    }
+  };
 
   return (
     <div style={{ padding: "40px" }}>
@@ -47,10 +37,16 @@ function ProductList() {
               <p style={{ fontWeight: 'bold', color: '#C5A059' }}>Rs. {p.price}</p>
 
               <Link to={`/products/${p.id}`}>
-                <button style={{ background: '#000', color: '#fff', border: 'none', padding: '10px 20px', borderRadius: '5px', cursor: 'pointer' }}>
+                <button style={{ background: '#000', color: '#fff', border: 'none', padding: '10px 20px', borderRadius: '5px', cursor: 'pointer', marginRight: '10px' }}>
                   View Details
                 </button>
               </Link>
+              <button
+                onClick={() => handleAddToCart(p)}
+                style={{ background: '#C5A059', color: '#000', border: 'none', padding: '10px 20px', borderRadius: '5px', cursor: 'pointer' }}
+              >
+                Add to Cart
+              </button>
             </div>
           ))}
         </div>

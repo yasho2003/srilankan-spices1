@@ -3,6 +3,7 @@ import './Cart.css';
 import { FiTrash2, FiMinus, FiPlus, FiArrowLeft } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../context/useCart';
+import { products } from '../data/products';
 
 const Cart = () => {
     const navigate = useNavigate();
@@ -17,21 +18,28 @@ const Cart = () => {
             </div>
         );
     }
+    
+    const enhancedCartItems = cartItems.map(item => {
+        const product = products.find(p => p.id === item.product_id);
+        return {
+            ...item,
+            image: product ? product.image : 'https://via.placeholder.com/100'
+        };
+    });
 
     // Note: Quantity update would require backend endpoint - for now just showing current quantity
     const updateQuantity = (id, delta) => {
-        // TODO: Implement quantity update API call
         console.log(`Update quantity for item ${id} with delta ${delta} not yet implemented`);
     };
 
-    const handleRemoveItem = async (id) => {
-        await removeFromCart(id);
+    const handleRemoveItem = async (product_id) => {
+        await removeFromCart(product_id);
     };
 
-    const subtotal = cartItems.reduce((acc, item) => acc + (item.product?.price || 0) * item.quantity, 0);
+    const subtotal = enhancedCartItems.reduce((acc, item) => acc + (item.price || 0) * item.quantity, 0);
     const shipping = 5.00;
     const total = subtotal + shipping;
-    
+
     const handleCheckout = () => {
         navigate('/payment');
     };
@@ -46,27 +54,27 @@ const Cart = () => {
                 <h1>Your Cart</h1>
 
                 <div className="cart-content">
-                    {cartItems.length > 0 ? (
+                    {enhancedCartItems.length > 0 ? (
                         <>
                             <div className="cart-items">
-                                {cartItems.map(item => (
-                                    <div key={item.id} className="cart-item">
+                                {enhancedCartItems.map(item => (
+                                    <div key={item.id || item.product_id} className="cart-item">
                                         <div className="item-image">
-                                            <img src={item.product?.imageUrl || 'https://via.placeholder.com/100'} alt={item.product?.name} />
+                                            <img src={item.image} alt={item.name} />
                                         </div>
                                         <div className="item-details">
-                                            <h3>{item.product?.name}</h3>
-                                            <p className="item-price-each">${item.product?.price?.toFixed(2)} / unit</p>
+                                            <h3>{item.name}</h3>
+                                            <p className="item-price-each">Rs. {(item.price || 0).toFixed(2)} / unit</p>
                                         </div>
                                         <div className="item-quantity">
-                                            <button onClick={() => updateQuantity(item.id, -1)}><FiMinus /></button>
+                                            <button onClick={() => updateQuantity(item.product_id, -1)}><FiMinus /></button>
                                             <span>{item.quantity}</span>
-                                            <button onClick={() => updateQuantity(item.id, 1)}><FiPlus /></button>
+                                            <button onClick={() => updateQuantity(item.product_id, 1)}><FiPlus /></button>
                                         </div>
                                         <div className="item-total">
-                                            ${((item.product?.price || 0) * item.quantity).toFixed(2)}
+                                            Rs. {((item.price || 0) * item.quantity).toFixed(2)}
                                         </div>
-                                        <button className="remove-btn" onClick={() => handleRemoveItem(item.id)}>
+                                        <button className="remove-btn" onClick={() => handleRemoveItem(item.product_id)}>
                                             <FiTrash2 />
                                         </button>
                                     </div>
@@ -77,15 +85,15 @@ const Cart = () => {
                                 <h2>Order Summary</h2>
                                 <div className="summary-row">
                                     <span>Subtotal</span>
-                                    <span>${subtotal.toFixed(2)}</span>
+                                    <span>Rs. {subtotal.toFixed(2)}</span>
                                 </div>
                                 <div className="summary-row">
                                     <span>Shipping</span>
-                                    <span>${shipping.toFixed(2)}</span>
+                                    <span>Rs. {shipping.toFixed(2)}</span>
                                 </div>
                                 <div className="summary-row total">
                                     <span>Total</span>
-                                    <span>${total.toFixed(2)}</span>
+                                    <span>Rs. {total.toFixed(2)}</span>
                                 </div>
                                 <button className="checkout-btn" onClick={handleCheckout}>Proceed to Checkout</button>
                                 <p className="secure-text">🛡️ Secure Payment & Shipping</p>

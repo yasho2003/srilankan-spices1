@@ -1,4 +1,4 @@
-const API_BASE_URL = 'http://localhost:8080/api';
+const API_BASE_URL = 'http://localhost:5000/api';
 
 // Get or create session ID
 export const getSessionId = () => {
@@ -12,9 +12,9 @@ export const getSessionId = () => {
 
 // Get all cart items for current session
 export const getCartItems = async () => {
-    const sessionId = getSessionId();
+    // const sessionId = getSessionId(); // Backend currently fetches all carts, maybe session ID will be needed later, but for now matching backend
     try {
-        const response = await fetch(`${API_BASE_URL}/cart?sessionId=${sessionId}`);
+        const response = await fetch(`${API_BASE_URL}/cart`);
         if (!response.ok) throw new Error('Failed to fetch cart items');
         return await response.json();
     } catch (error) {
@@ -24,8 +24,8 @@ export const getCartItems = async () => {
 };
 
 // Add item to cart
-export const addToCart = async (productId, quantity = 1) => {
-    const sessionId = getSessionId();
+export const addToCart = async (item) => {
+    // const sessionId = getSessionId();
     try {
         const response = await fetch(`${API_BASE_URL}/cart/add`, {
             method: 'POST',
@@ -33,9 +33,9 @@ export const addToCart = async (productId, quantity = 1) => {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                sessionId,
-                productId,
-                quantity,
+                id: item.id,
+                name: item.name,
+                price: item.price
             }),
         });
         if (!response.ok) throw new Error('Failed to add item to cart');
