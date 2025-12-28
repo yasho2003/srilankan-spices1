@@ -1,8 +1,5 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
-
-const CurrencyContext = createContext();
-
-export const useCurrency = () => useContext(CurrencyContext);
+import React, { useState, useEffect } from 'react';
+import { CurrencyContext } from './CurrencyContextDef';
 
 export const CurrencyProvider = ({ children }) => {
     // Default to LKR

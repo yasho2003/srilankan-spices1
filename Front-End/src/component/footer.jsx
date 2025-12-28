@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Footer.css';
 import { FaPhoneAlt, FaEnvelope, FaFacebookF, FaPinterestP, FaInstagram, FaTiktok } from 'react-icons/fa'; // Requires: npm install react-icons
-import { useCurrency } from '../context/CurrencyContext';
+import { useCurrency } from '../context/useCurrency';
 
 const Footer = () => {
   const { currency, setCurrency } = useCurrency();

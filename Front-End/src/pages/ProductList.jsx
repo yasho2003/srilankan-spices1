@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { useCart } from "../context/useCart";
 import { products } from "../data/products";
-import { useCurrency } from "../context/CurrencyContext";
+import { useCurrency } from "../context/useCurrency";
 
 function ProductList() {
   const { addToCart } = useCart();

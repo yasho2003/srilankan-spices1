@@ -4,7 +4,7 @@ import { FiTrash2, FiMinus, FiPlus, FiArrowLeft } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../context/useCart';
 import { products } from '../data/products';
-import { useCurrency } from '../context/CurrencyContext';
+import { useCurrency } from '../context/useCurrency';
 
 const Cart = () => {
     const navigate = useNavigate();

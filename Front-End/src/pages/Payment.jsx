@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../context/useCart';
-import { useCurrency } from '../context/CurrencyContext';
+import { useCurrency } from '../context/useCurrency';
 import './Payment.css';
 
 const Payment = () => {
