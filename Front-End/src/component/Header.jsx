@@ -3,11 +3,13 @@ import { Link, useNavigate } from "react-router-dom";
 import "./Header.css";
 import logo from "../assets/logo.png";
 import { FiSearch, FiUser, FiShoppingBag, FiX } from "react-icons/fi";
+import { useAuth } from "../context/useAuth";
 
 const Header = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
+  const { user } = useAuth();
 
   const handleSearch = (e) => {
     if (e.key === "Enter" && searchQuery.trim()) {
@@ -57,7 +59,7 @@ const Header = () => {
             <FiSearch className="icon search-trigger" onClick={toggleSearch} />
           )}
         </div>
-        <Link to="/cart" title="Account"><FiUser className="icon" /></Link>
+        <Link to={user ? "/profile" : "/login"} title={user ? "Profile" : "Login"}><FiUser className="icon" /></Link>
         <Link to="/cart" className="cart-icon-container" title="Cart">
           <FiShoppingBag className="icon" />
         </Link>
