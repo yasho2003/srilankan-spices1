@@ -27,11 +27,12 @@ export const CartProvider = ({ children }) => {
         }
     };
 
-    const addToCart = async (item) => {
+    const addToCart = async (item, quantity = 1) => {
         setLoading(true);
         setError(null);
         try {
-            await cartService.addToCart(item);
+            const itemWithQty = { ...item, quantity };
+            await cartService.addToCart(itemWithQty);
             await fetchCart();
             return true;
         } catch (err) {

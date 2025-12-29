@@ -45,7 +45,7 @@ function ProductList() {
               </Link>
               <button
                 onClick={() => handleAddToCart(p)}
-                style={{ background: '#C5A059', color: '#000', border: 'none', padding: '10px 20px', borderRadius: '5px', cursor: 'pointer' }}
+                style={{ background: '#dea948ff', color: '#000', border: 'none', padding: '10px 20px', borderRadius: '5px', cursor: 'pointer' }}
               >
                 Add to Cart
               </button>

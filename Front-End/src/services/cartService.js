@@ -35,7 +35,8 @@ export const addToCart = async (item) => {
             body: JSON.stringify({
                 id: item.id,
                 name: item.name,
-                price: item.price
+                price: item.price,
+                quantity: item.quantity || 1
             }),
         });
         if (!response.ok) throw new Error('Failed to add item to cart');
