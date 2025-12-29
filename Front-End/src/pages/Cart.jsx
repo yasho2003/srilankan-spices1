@@ -1,6 +1,6 @@
 import React from 'react';
 import './Cart.css';
-import { FiTrash2, FiMinus, FiPlus, FiArrowLeft } from 'react-icons/fa';
+import { FiTrash2, FiMinus, FiPlus, FiArrowLeft } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../context/useCart';
 import { products } from '../data/products';
