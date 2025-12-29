@@ -26,7 +26,7 @@
 
 /* Order Summary */
 .order-summary {
-    background: white;
+    background: #fff;
     border-radius: 16px;
     padding: 2rem;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -38,7 +38,7 @@
     font-size: 1.5rem;
     color: #2c3e50;
     margin-bottom: 1.5rem;
-    border-bottom: 2px solid #e74c3c;
+    border-bottom: 2px solid #6d1fb1ff;
     padding-bottom: 0.5rem;
 }
 
@@ -72,7 +72,7 @@
 
 .item-price {
     font-weight: 600;
-    color: #e74c3c;
+    color: #6d1fb1ff;
 }
 
 .summary-totals {
@@ -91,9 +91,9 @@
 .summary-row.total {
     font-size: 1.25rem;
     font-weight: 700;
-    color: #e74c3c;
+    color: #6d1fb1ff;
     padding-top: 1rem;
-    border-top: 2px solid #e74c3c;
+    border-top: 2px solid #6d1fb1ff;
     margin-top: 0.5rem;
 }
 
@@ -137,9 +137,9 @@
 }
 
 .form-group input:focus {
-    outline: none;
-    border-color: #e74c3c;
-    box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+    outline: none;  
+    border-color: #000000;
+    box-shadow: 0 0 0 3px rgba(84, 83, 83, 0.1);
 }
 
 .form-row {
@@ -167,7 +167,7 @@
 }
 
 .payment-method:hover {
-    border-color: #e74c3c;
+    border-color: #8f8c8c;
     background: #fff5f5;
 }
 
@@ -188,7 +188,7 @@
 .place-order-btn {
     width: 100%;
     padding: 1.25rem;
-    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+    background: linear-gradient(135deg, #000000 0%, #6d1fb1ff 100%);
     color: white;
     border: none;
     border-radius: 12px;
@@ -196,12 +196,12 @@
     font-weight: 700;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+    box-shadow: 0 4px 15px rgba(131, 60, 189, 0.3);
 }
 
 .place-order-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+    box-shadow: 0 6px 20px rgba(131, 60, 189, 0.4);
 }
 
 .place-order-btn:active {

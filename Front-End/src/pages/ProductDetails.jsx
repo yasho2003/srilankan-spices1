@@ -93,12 +93,12 @@ function ProductDetails() {
 
 
         {/* Controls Container */}
-        <div style={{ border: '1px solid #e0e0e0', padding: '20px', borderRadius: '8px', marginTop: '10px' }}>
+        <div style={{ border: '1px solid #d2ceceff', padding: '20px', borderRadius: '8px', marginTop: '10px' }}>
 
           {/* Quantity Selector */}
           <div style={{ marginBottom: '20px' }}>
             <label style={{ display: 'block', fontSize: '1.1rem', marginBottom: '8px', fontWeight: 'bold' }}>Quantity</label>
-            <div style={{ display: 'flex', alignItems: 'center', border: '1px solid #030303ff', width: 'fit-content', borderRadius: '4px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', border: '1px solid #060606ff', width: 'fit-content', borderRadius: '4px' }}>
               <button
                 onClick={() => handleRecommendQuantity(quantity - 1)}
                 style={{ background: 'transparent', border: 'none', padding: '8px 15px', cursor: 'pointer', fontSize: '1.2rem',color:'#030303ff' }}
@@ -137,8 +137,8 @@ function ProductDetails() {
             <button
               onClick={handleBuyNow}
               style={{
-                background: '#4f46e5', // Purchase button 
-                color: '#f6f3f3ff',
+                background: '#6d1fb1ff', // Purchase button 
+                color: '#fff8f8ff',
                 border: 'none',
                 padding: '15px',
                 borderRadius: '4px',
@@ -148,7 +148,7 @@ function ProductDetails() {
                 fontSize: '1rem'
               }}
             >
-              Buy with Shop
+              BUY NOW
             </button>
           </div>
 

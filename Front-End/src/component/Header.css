@@ -1,11 +1,10 @@
-/* Premium Dark Header Styling */
+
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 40px;
-  /* Reduced padding for more compact header */
-  background-color: #000000;
+  background-color: rgb(0, 0, 0);
   color: #ffffff;
   position: sticky;
   top: 0;
@@ -15,25 +14,25 @@
 
 /* Logo Section */
 .logo-container {
-  flex: 1;
+  flex: 2;
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
 
 .logo {
-  height: 65px;
+  height: 70px;
   width: auto;
   object-fit: contain;
-  filter: drop-shadow(0 0 2px rgba(197, 160, 89, 0.4));
+  filter: drop-shadow(0 0 0px rgba(0, 0, 0, 0));
 }
 
 /* Navigation Section */
 .nav-bar {
   flex: 2;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: right;
+  align-items: right;
   gap: 30px;
 }
 
@@ -42,7 +41,7 @@
   color: #ffffff;
   font-family: 'Playfair Display', serif;
   font-weight: 500;
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   letter-spacing: 1.5px;
   text-transform: uppercase;
   transition: color 0.3s ease, border-bottom 0.3s ease;
@@ -51,8 +50,8 @@
 }
 
 .nav-bar a:hover {
-  color: #C5A059;
-  border-bottom: 2px solid #C5A059;
+  color: rgb(255, 255, 255);
+  border-bottom: 3px solid #6d1fb1ff;
 }
 
 /* Icons Section */
@@ -112,13 +111,13 @@
 }
 
 .icon:hover {
-  color: #C5A059;
+  color: #6d1fb1ff;
   transform: scale(1.1);
 }
 
 .close-search {
   font-size: 1.2rem;
-  color: #C5A059;
+  color: #6d1fb1ff;
 }
 
 .cart-icon-container {

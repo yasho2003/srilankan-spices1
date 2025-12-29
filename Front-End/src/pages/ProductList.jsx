@@ -36,7 +36,7 @@ function ProductList() {
             <div key={p.id} className="product-card" style={{ border: "1px solid #eee", padding: "20px", borderRadius: '12px', textAlign: 'center' }}>
               <img src={p.image} alt={p.name} style={{ width: '100%', height: '200px', objectFit: 'cover', borderRadius: '8px', marginBottom: '15px' }} />
               <h3>{p.name}</h3>
-              <p style={{ fontWeight: 'bold', color: '#C5A059' }}>{formatPrice(p.price)}</p>
+              <p style={{ fontWeight: 'bold', color: '#6d1fb1ff' }}>{formatPrice(p.price)}</p>
 
               <Link to={`/products/${p.id}`}>
                 <button style={{ background: '#000', color: '#fff', border: 'none', padding: '10px 20px', borderRadius: '5px', cursor: 'pointer', marginRight: '10px' }}>
@@ -45,7 +45,7 @@ function ProductList() {
               </Link>
               <button
                 onClick={() => handleAddToCart(p)}
-                style={{ background: '#dea948ff', color: '#000', border: 'none', padding: '10px 20px', borderRadius: '5px', cursor: 'pointer' }}
+                style={{ background: '#6d1fb1ff', color: '#fff8f8ff', border: 'none',padding: '10px 20px', borderRadius: '5px', cursor: 'pointer' }}
               >
                 Add to Cart
               </button>
