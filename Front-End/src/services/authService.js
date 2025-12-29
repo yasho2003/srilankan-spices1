@@ -15,7 +15,8 @@ const handleResponse = async (response, defaultMessage) => {
     }
 
     if (!response.ok) {
-        throw new Error(data.message || defaultMessage);
+        const errorMsg = data.message || data.sqlMessage || (data.code ? `DB Error: ${data.code}` : undefined) || defaultMessage;
+        throw new Error(errorMsg);
     }
     return data;
 };

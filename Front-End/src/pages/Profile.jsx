@@ -40,16 +40,16 @@ export default function Profile() {
                 <h1 style={{ fontSize: '2.5rem', fontWeight: 'bold' }}>Profile</h1>
                 <button
                     onClick={handleLogout}
-                    style={{ padding: '8px 16px', border: '1px solid #ccc', background: 'transparent', borderRadius: '4px', cursor: 'pointer' }}
-                >
+                    style={{ padding: '8px 16px', border: '2px solid #000000ff',color: '#000000ff', background: 'transparent', borderRadius: '4px', cursor: 'pointer' }}
+                >   
                     Log out
                 </button>
             </div>
 
             {/* Profile Card */}
-            <div style={{ border: '1px solid #eee', borderRadius: '8px', padding: '30px', marginBottom: '30px', boxShadow: '0 2px 5px rgba(0,0,0,0.05)' }}>
+            <div style={{ border: '1px solid #6d1fb1ff', borderRadius: '8px', padding: '30px', marginBottom: '30px', boxShadow: '0 2px 5px rgba(0,0,0,0.05)' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '20px' }}>
-                    <div style={{ fontSize: '1.2rem', color: '#888' }}>
+                    <div style={{ fontSize: '1.2rem', color: '#040404ff' }}>
                         Contact Information
                     </div>
                     {!isEditing && (
@@ -61,19 +61,19 @@ export default function Profile() {
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
                         <label>
                             Name: <br />
-                            <input value={name} onChange={e => setName(e.target.value)} style={{ padding: '8px', width: '100%', marginTop: '5px' }} />
+                            <input value={name} onChange={e => setName(e.target.value)} style={{ padding: '10px',background: '#fbf9f9ff',color: '#040404ff', border: '1px solid #8b8989ec', borderRadius: '4px', width: '100%', marginTop: '5px' }} />
                         </label>
                         <label>
                             Email: <br />
-                            <input value={email} onChange={e => setEmail(e.target.value)} style={{ padding: '8px', width: '100%', marginTop: '5px' }} />
+                            <input value={email} onChange={e => setEmail(e.target.value)} style={{ padding: '10px',background: '#fbf9f9ff',color: '#040404ff', border: '1px solid #9e97a3b1', borderRadius: '4px', width: '100%', marginTop: '5px' }} />
                         </label>
                         <label>
                             Address: <br />
-                            <input value={address} onChange={e => setAddress(e.target.value)} style={{ padding: '8px', width: '100%', marginTop: '5px' }} />
+                            <input value={address} onChange={e => setAddress(e.target.value)} style={{ padding: '10px',background: '#fbf9f9ff',color: '#040404ff', border: '1px solid #9e97a3b1',width: '100%', marginTop: '5px' }} />
                         </label>
                         <div style={{ display: 'flex', gap: '10px', marginTop: '10px' }}>
-                            <button onClick={handleSave} style={{ padding: '10px 20px', background: '#000', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>Save</button>
-                            <button onClick={() => setIsEditing(false)} style={{ padding: '10px 20px', background: '#eee', color: '#000', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>Cancel</button>
+                            <button onClick={handleSave} style={{ padding: '10px 20px', background: '#6d1fb1ff', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>Save</button>
+                            <button onClick={() => setIsEditing(false)} style={{ padding: '10px 20px', background: '#eee', color: '#000', border: '1px solid #6d1fb1ff', borderRadius: '4px', cursor: 'pointer' }}>Cancel</button>
                         </div>
                     </div>
                 ) : (
@@ -85,15 +85,15 @@ export default function Profile() {
             </div>
 
             {/* Address Section */}
-            <div style={{ border: '1px solid #eee', borderRadius: '8px', padding: '30px', boxShadow: '0 2px 5px rgba(0,0,0,0.05)' }}>
+            <div style={{ border: '1px solid #6d1fb1ff', borderRadius: '8px', padding: '30px', boxShadow: '0 2px 5px rgba(202, 95, 235, 0.42)' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
-                    <h3 style={{ fontSize: '1.2rem', fontWeight: 'bold', margin: 0 }}>Addresses</h3>
-                    <button style={{ background: 'none', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '5px', fontSize: '1rem', fontWeight: 'bold' }} onClick={() => setIsEditing(true)}>
+                    <h3 style={{ fontSize: '1.2rem', fontWeight: 'bold', margin: 0 }}>Address</h3>
+                    <button style={{ background: 'none',color: '#010101ff',border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '5px', fontSize: '1rem', fontWeight: 'bold' }} onClick={() => setIsEditing(true)}>
                         <FiPlus /> Add
                     </button>
                 </div>
 
-                <div style={{ background: '#f9f9f9', padding: '20px', borderRadius: '4px', color: '#666' }}>
+                <div style={{ background: '#6d1fb11a', padding: '20px', borderRadius: '4px', color: '#666' }}>
                     {user.address ? (
                         <div>{user.address}</div>
                     ) : (

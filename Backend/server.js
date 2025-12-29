@@ -7,12 +7,11 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// ... (imports remain)
 
 // INITIALIZE TABLES
 const initTables = () => {
   const usersTable = `
-    CREATE TABLE IF NOT EXISTS users (
+    CREATE TABLE IF NOT EXISTS app_users (
       id INT AUTO_INCREMENT PRIMARY KEY,
       name VARCHAR(255) NOT NULL,
       email VARCHAR(255) NOT NULL UNIQUE,
@@ -25,8 +24,8 @@ const initTables = () => {
 
 
   db.query(usersTable, (err) => {
-    if (err) console.log("Error creating users table ❌", err);
-    else console.log("Users table confirmed ✅");
+    if (err) console.log("Error creating app_users table ❌", err);
+    else console.log("app_users table confirmed ✅");
   });
 };
 
@@ -41,8 +40,8 @@ app.get("/", (req, res) => {
 // REGISTER
 app.post("/api/auth/register", (req, res) => {
   const { name, email, password } = req.body;
- 
-  const sql = "INSERT INTO users (name, email, password) VALUES (?, ?, ?)";
+
+  const sql = "INSERT INTO app_users (name, email, password) VALUES (?, ?, ?)";
 
   db.query(sql, [name, email, password], (err, result) => {
     if (err) {
@@ -59,7 +58,7 @@ app.post("/api/auth/register", (req, res) => {
 // LOGIN
 app.post("/api/auth/login", (req, res) => {
   const { email, password } = req.body;
-  const sql = "SELECT * FROM users WHERE email = ? AND password = ?";
+  const sql = "SELECT * FROM app_users WHERE email = ? AND password = ?";
 
   db.query(sql, [email, password], (err, data) => {
     if (err) return res.status(500).json(err);
@@ -73,12 +72,12 @@ app.post("/api/auth/login", (req, res) => {
 // UPDATE USER
 app.put("/api/users/update", (req, res) => {
   const { id, name, email, address } = req.body;
-  const sql = "UPDATE users SET name = ?, email = ?, address = ? WHERE id = ?";
+  const sql = "UPDATE app_users SET name = ?, email = ?, address = ? WHERE id = ?";
 
   db.query(sql, [name, email, address, id], (err, result) => {
     if (err) return res.status(500).json(err);
     // Fetch updated user to return
-    db.query("SELECT * FROM users WHERE id = ?", [id], (err, data) => {
+    db.query("SELECT * FROM app_users WHERE id = ?", [id], (err, data) => {
       if (err) return res.status(500).json(err);
       const { password: _, ...user } = data[0];
       res.json(user);

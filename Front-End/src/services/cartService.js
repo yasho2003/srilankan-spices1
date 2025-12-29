@@ -1,4 +1,24 @@
-const API_BASE_URL = 'http://localhost:5000/api';
+const API_BASE_URL = 'http://localhost:5001/api';
+
+const handleResponse = async (response, defaultMessage) => {
+    let data;
+    try {
+        const text = await response.text();
+        try {
+            data = JSON.parse(text);
+        } catch {
+            throw new Error(`Server returned non-JSON response (likely HTML): ${text.substring(0, 50)}...`);
+        }
+    } catch (e) {
+        throw new Error(e.message || defaultMessage);
+    }
+
+    if (!response.ok) {
+        const errorMsg = data.message || data.sqlMessage || (data.code ? `DB Error: ${data.code}` : undefined) || defaultMessage;
+        throw new Error(errorMsg);
+    }
+    return data;
+};
 
 // Get or create session ID
 export const getSessionId = () => {
@@ -12,11 +32,9 @@ export const getSessionId = () => {
 
 // Get all cart items for current session
 export const getCartItems = async () => {
-    // const sessionId = getSessionId(); // Backend currently fetches all carts, maybe session ID will be needed later, but for now matching backend
     try {
         const response = await fetch(`${API_BASE_URL}/cart`);
-        if (!response.ok) throw new Error('Failed to fetch cart items');
-        return await response.json();
+        return handleResponse(response, 'Failed to fetch cart items');
     } catch (error) {
         console.error('Error fetching cart items:', error);
         throw error;
@@ -25,7 +43,6 @@ export const getCartItems = async () => {
 
 // Add item to cart
 export const addToCart = async (item) => {
-    // const sessionId = getSessionId();
     try {
         const response = await fetch(`${API_BASE_URL}/cart/add`, {
             method: 'POST',
@@ -39,8 +56,7 @@ export const addToCart = async (item) => {
                 quantity: item.quantity || 1
             }),
         });
-        if (!response.ok) throw new Error('Failed to add item to cart');
-        return await response.json();
+        return handleResponse(response, 'Failed to add item to cart');
     } catch (error) {
         console.error('Error adding to cart:', error);
         throw error;
