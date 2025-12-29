@@ -57,7 +57,7 @@ function ProductList() {
           <h3>No spices found matching your search.</h3>
           <p>Try searching for something else or browse our collection.</p>
           <Link to="/products" onClick={() => window.location.href = '/products'}>
-            <button style={{ background: '#C5A059', color: '#000', border: 'none', padding: '10px 20px', borderRadius: '5px', marginTop: '20px' }}>
+            <button style={{ background: '#6d1fb1ff', color: '#fff8f8ff', border: 'none',fontFamily: 'georgia',fontWeight: 'bold',fontSize: '1.1rem', padding: '10px 20px', borderRadius: '5px', marginTop: '20px' }}>
               Browse All Spices
             </button>
           </Link>
