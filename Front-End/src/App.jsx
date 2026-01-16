@@ -8,6 +8,7 @@ import { AuthProvider } from './context/AuthContext';
 
 // Customer pages
 import Home from "./pages/Home";
+import About from "./pages/About";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import ProductList from "./pages/ProductList";
@@ -38,12 +39,15 @@ import FAQ from "./pages/FAQ";
 import Cart from "./pages/Cart";
 import Payment from "./pages/Payment";
 
+import ScrollToTop from './component/ScrollToTop';
+
 function App() {
   return (
     <CurrencyProvider>
       <AuthProvider>
         <CartProvider>
           <BrowserRouter>
+            <ScrollToTop />
             {/* Add the main flex container */}
             <div className="app-container">
 
@@ -53,6 +57,7 @@ function App() {
               <div className="content-wrap">
                 <Routes>
                   <Route path="/" element={<Home />} />
+                  <Route path="/about" element={<About />} />
                   <Route path="/login" element={<Login />} />
                   <Route path="/profile" element={<Profile />} />
                   <Route path="/cart" element={<Cart />} />

@@ -49,7 +49,7 @@ const Footer = () => {
             <li><Link to="/blog">Our Blog</Link></li>
             <li><Link to="/spice-journal">Spice Journal</Link></li>
             <li><Link to="/careers">Join Our Team</Link></li>
-            <li><a href="/account">My account</a></li>
+            <li><Link to={user ? "/profile" : "/login"}>My account</Link></li>
           </ul>
         </div>
 
