@@ -1,16 +1,19 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/useAuth';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import logo from '../assets/logo.png';
+import './Login.css';
 
 export default function Login() {
-    const [isLogin, setIsLogin] = useState(true);
-    const [email, setEmail] = useState('');
+    const location = useLocation();
+    const navigate = useNavigate();
+    const { login, register } = useAuth();
+
+    const [isLogin, setIsLogin] = useState(location.state?.mode !== 'signup');
+    const [email, setEmail] = useState(location.state?.email || '');
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
     const [error, setError] = useState('');
-    const { login, register } = useAuth();
-    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -24,82 +27,69 @@ export default function Login() {
         }
 
         if (result.success) {
-            navigate('/products'); // Redirect to products or home after login
+            navigate('/products');
         } else {
             setError(result.message);
         }
     };
 
     return (
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '80vh', fontFamily: 'sans-serif' }}>
-            <div style={{ width: '100%', maxWidth: '400px', padding: '20px', textAlign: 'center' }}>
+        <div className="login-container">
+            <div className="login-card">
+                <img src={logo} alt="Spice Harvest Co." className="login-logo" />
 
-                <img src={logo} alt="Spice Harvest Co." style={{ width: '80px', marginBottom: '20px' }} />
-
-                <h2 style={{ fontSize: '2rem', marginBottom: '10px' }}>{isLogin ? 'Sign in' : 'Create account'}</h2>
-                <p style={{ color: '#666', marginBottom: '30px' }}>
-                    {isLogin ? 'Sign in or create an account' : 'Please enter your details'}
+                <h2>{isLogin ? 'Sign in' : 'Create account'}</h2>
+                <p>
+                    {isLogin ? 'Sign in or create an account' : 'Please enter your details to join us'}
                 </p>
 
-                {error && <div style={{ color: 'red', marginBottom: '15px' }}>{error}</div>}
+                {error && <div className="error-message">{error}</div>}
 
-                <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
-
+                <form onSubmit={handleSubmit} className="login-form">
                     {!isLogin && (
                         <input
                             type="text"
                             placeholder="Full Name"
+                            className="login-input"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
                             required
-                            style={{ padding: '15px', borderRadius: '5px', border: '1px solid #ccc', fontSize: '1rem' }}
                         />
                     )}
 
                     <input
                         type="email"
                         placeholder="Email"
+                        className="login-input"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         required
-                        style={{ padding: '15px', borderRadius: '5px', border: '1px solid #ccc', fontSize: '1rem' }}
                     />
 
                     <input
                         type="password"
                         placeholder="Password"
+                        className="login-input"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         required
-                        style={{ padding: '15px', borderRadius: '5px', border: '1px solid #ccc', fontSize: '1rem' }}
                     />
 
-                    <button
-                        type="submit"
-                        style={{
-                            background: '#000',
-                            color: '#fff',
-                            border: 'none',
-                            padding: '15px',
-                            borderRadius: '5px',
-                            fontSize: '1rem',
-                            cursor: 'pointer',
-                            marginTop: '10px'
-                        }}
-                    >
+                    <button type="submit" className="login-submit-btn">
                         {isLogin ? 'Continue' : 'Create Account'}
                     </button>
                 </form>
 
-                <div style={{ marginTop: '20px' }}>
-                    <button
-                        onClick={() => setIsLogin(!isLogin)}
-                        style={{ background: 'none', border: 'none', color: '#000', textDecoration: 'underline', cursor: 'pointer' }}
-                    >
-                        {isLogin ? "No account? Create one" : "Already have an account? Sign in"}
-                    </button>
-                </div>
-
+                <button
+                    className="login-toggle-btn"
+                    onClick={() => setIsLogin(!isLogin)}
+                >
+                    {isLogin ? (
+                        <>No account? <span>Create one</span></>
+                    ) : (
+                        <>Already have an account? <span>Sign in</span></>
+                    )}
+                </button>
             </div>
         </div>
     );

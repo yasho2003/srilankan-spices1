@@ -1,23 +1,40 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import './Footer.css';
 import { FaPhoneAlt, FaEnvelope, FaFacebookF, FaPinterestP, FaInstagram, FaTiktok } from 'react-icons/fa'; // Requires: npm install react-icons
 import { useCurrency } from '../context/useCurrency';
+import { useAuth } from '../context/useAuth';
 
 const Footer = () => {
   const { currency, setCurrency } = useCurrency();
+  const { user } = useAuth();
+  const navigate = useNavigate();
+  const [email, setEmail] = useState('');
+
+  const handleSignupRedirect = (e) => {
+    e.preventDefault();
+    navigate('/login', { state: { mode: 'signup', email } });
+  };
 
   return (
     <footer className="footer">
 
       {/* --- Top Section: Newsletter --- */}
-      <div className="newsletter-section">
-        <h3>Sign up for our newsletter for early access to releases, special offers, and a dash of spice-filled inspiration.</h3>
-        <form className="newsletter-form">
-          <input type="email" placeholder="Enter Your Email Address" required />
-          <button type="button">Sign Up</button>
-        </form>
-      </div>
+      {!user && (
+        <div className="newsletter-section">
+          <h3>Sign up for our newsletter for early access to releases, special offers, and a dash of spice-filled inspiration.</h3>
+          <form className="newsletter-form" onSubmit={handleSignupRedirect}>
+            <input
+              type="email"
+              placeholder="Enter Your Email Address"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+            <button type="submit">Sign Up</button>
+          </form>
+        </div>
+      )}
 
       <hr className="footer-divider" />
 

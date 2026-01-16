@@ -1,0 +1,125 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    font-family: 'Lato', sans-serif;
+    padding: 20px;
+    background-color: #fcfcfc;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 450px;
+    padding: 40px;
+    text-align: center;
+    background: #ffffff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+}
+
+.login-logo {
+    width: 80px;
+    margin-bottom: 25px;
+    transition: transform 0.3s ease;
+}
+
+.login-logo:hover {
+    transform: scale(1.05);
+}
+
+.login-card h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    color: #1a1a1a;
+    font-weight: 700;
+}
+
+.login-card p {
+    color: #666;
+    margin-bottom: 35px;
+    font-size: 1.05rem;
+    line-height: 1.5;
+}
+
+.error-message {
+    color: #d32f2f;
+    background-color: #ffebee;
+    padding: 12px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    border-left: 4px solid #d32f2f;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.login-input {
+    padding: 16px;
+    border-radius: 6px;
+    border: 1px solid #e0e0e0;
+    font-size: 1rem;
+    font-family: 'Lato', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.login-input:focus {
+    border-color: #000;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.05);
+}
+
+.login-submit-btn {
+    background: #000;
+    color: #fff;
+    border: none;
+    padding: 16px;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+}
+
+.login-submit-btn:hover {
+    background: #333;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.login-toggle-btn {
+    background: none;
+    border: none;
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-top: 25px;
+    padding: 10px;
+    transition: opacity 0.3s ease;
+}
+
+.login-toggle-btn span {
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.login-toggle-btn:hover {
+    opacity: 0.7;
+}
+
+@media (max-width: 480px) {
+    .login-card {
+        padding: 30px 20px;
+        box-shadow: none;
+        background: transparent;
+    }
+}
