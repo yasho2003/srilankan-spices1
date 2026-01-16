@@ -1,22 +1,24 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../context/useCart';
+import { useCurrency } from '../context/useCurrency';
 import './BusinessGifting.css';
 import goldenTea from '../assets/golden-turmeric-tea.jpg';
 
 const BusinessGifting = () => {
     const navigate = useNavigate();
     const { addToCart } = useCart();
+    const { formatPrice } = useCurrency();
     const [selectedGift, setSelectedGift] = useState(null);
 
-    // Dummy Data for Gift Packs
+    // Dynamic data for Gift Packs with LKR base prices
     const giftPacks = [
         {
             id: 1,
             name: "Ceylon Herbal Tea Collection",
             image: "https://images.unsplash.com/photo-1597481499750-3e6b22637e12?q=80&w=1000&auto=format&fit=crop",
             description: "A soothing selection of premium Ceylon herbal teas. Perfect for wellness and relaxation.",
-            price: "$45.00",
+            price: 13500,
             items: [
                 "Organic Cinnamon Tea (50g)",
                 "Lemongrass & Ginger Blend (50g)",
@@ -30,7 +32,7 @@ const BusinessGifting = () => {
             name: "Ultimate Spice Master Pack",
             image: "https://images.unsplash.com/photo-1585597621521-92eff3674298?q=80&w=1170&auto=format&fit=crop",
             description: "The essential collection for any culinary enthusiast. Authentic Sri Lankan spices to elevate every dish.",
-            price: "$60.00",
+            price: 18000,
             items: [
                 "Ceylon Cinnamon Sticks (100g)",
                 "Black Pepper Corns (100g)",
@@ -45,7 +47,7 @@ const BusinessGifting = () => {
             name: "Artisan Handmade Card & Spice",
             image: "https://images.unsplash.com/photo-1580437066029-e948d775426c?w=600&auto=format&fit=crop&q=60",
             description: "A thoughtful gesture combining traditional spices with a beautifully handcrafted greeting card.",
-            price: "$25.00",
+            price: 7500,
             items: [
                 "Choice of 2 Spice Jars (50g each)",
                 "Handmade Paper Greeting Card",
@@ -58,7 +60,7 @@ const BusinessGifting = () => {
             name: "Golden Turmeric Wellness Kit",
             image: goldenTea,
             description: "Harness the power of golden turmeric with this health-focused gift set.",
-            price: "$35.00",
+            price: 10500,
             items: [
                 "Organic Turmeric Powder (100g)",
                 "Turmeric & Black Pepper Tea (20 bags)",
@@ -77,14 +79,15 @@ const BusinessGifting = () => {
     };
 
     const handleAddToCart = async () => {
-        const success = await addToCart(selectedGift.id, 1);
+        const success = await addToCart(selectedGift);
         if (success) {
             alert(`${selectedGift.name} added to cart!`);
         }
         closeModal();
     };
 
-    const handleBuyNow = () => {
+    const handleBuyNow = async () => {
+        await addToCart(selectedGift);
         navigate('/payment');
         closeModal();
     };
@@ -131,19 +134,19 @@ const BusinessGifting = () => {
                             <tbody>
                                 <tr>
                                     <td>Less than 250g</td>
-                                    <td>$4.00</td>
+                                    <td>{formatPrice(1200)}</td>
                                 </tr>
                                 <tr>
                                     <td>250g - 500g</td>
-                                    <td>$5.00</td>
+                                    <td>{formatPrice(1500)}</td>
                                 </tr>
                                 <tr>
                                     <td>500g - 1000g</td>
-                                    <td>$6.00</td>
+                                    <td>{formatPrice(1800)}</td>
                                 </tr>
                                 <tr>
                                     <td>More than 1000g</td>
-                                    <td>$8.00</td>
+                                    <td>{formatPrice(2400)}</td>
                                 </tr>
                             </tbody>
                         </table>

@@ -80,7 +80,7 @@ function ProductDetails() {
 
         {/* Price */}
         <div>
-          <p style={{ margin: '0', fontSize: '1.9rem', fontWeight: 'bold',fontFamily:'serif' }}>
+          <p style={{ margin: '0', fontSize: '1.9rem', fontWeight: 'bold', fontFamily: 'serif' }}>
             {formatPrice(product.price)}
           </p>
         </div>
@@ -101,12 +101,12 @@ function ProductDetails() {
             <div style={{ display: 'flex', alignItems: 'center', border: '1px solid #060606ff', width: 'fit-content', borderRadius: '4px' }}>
               <button
                 onClick={() => handleRecommendQuantity(quantity - 1)}
-                style={{ background: 'transparent', border: 'none', padding: '8px 15px', cursor: 'pointer', fontSize: '1.2rem',color:'#030303ff' }}
+                style={{ background: 'transparent', border: 'none', padding: '8px 15px', cursor: 'pointer', fontSize: '1.2rem', color: '#030303ff' }}
               >−</button>
               <span style={{ padding: '8px 15px', minWidth: '40px', textAlign: 'center', fontSize: '1.1rem' }}>{quantity}</span>
               <button
                 onClick={() => handleRecommendQuantity(quantity + 1)}
-                style={{ background: 'transparent', border: 'none', padding: '8px 15px', cursor: 'pointer', fontSize: '1.2rem',color:'#030303ff' }}
+                style={{ background: 'transparent', border: 'none', padding: '8px 15px', cursor: 'pointer', fontSize: '1.2rem', color: '#030303ff' }}
               >+</button>
             </div>
           </div>
@@ -153,7 +153,7 @@ function ProductDetails() {
           </div>
 
           <div style={{ marginTop: '15px', fontSize: '0.85rem', color: '#666', textAlign: 'center' }}>
-            <p>Secure payments • Free shipping over $65</p>
+            <p>Secure payments • Free shipping over {formatPrice(15000)}</p>
           </div>
 
         </div>

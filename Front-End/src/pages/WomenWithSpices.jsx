@@ -1,5 +1,5 @@
 import React from 'react';
-import womenSpicesHero from '../assets/women_spices_hero_new.jpg';
+import womenSpicesHero from '../assets/women_spices_hero_generated.png';
 import './WomenWithSpices.css';
 
 const WomenWithSpices = () => {
@@ -7,7 +7,7 @@ const WomenWithSpices = () => {
         {
             id: "video1",
             title: "How Sri Lankan Cinnamon Is Made | World’s Purest Spice Handcrafted",
-            embedUrl: "https://www.youtube.com/embed/CjIHRBUq8Fk", 
+            embedUrl: "https://www.youtube.com/embed/CjIHRBUq8Fk",
             description: "This video explores the handcrafted production of true Ceylon cinnamon in Sri Lanka. It details the traditional process of harvesting, hand-peeling, and sun-drying the delicate inner bark into golden quills. Highlighting its health benefits and low coumarin levels, the film celebrates cinnamon as a vital symbol of Sri Lankan heritage."
         },
         {

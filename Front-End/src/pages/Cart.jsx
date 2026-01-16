@@ -40,7 +40,7 @@ const Cart = () => {
     };
 
     const subtotal = enhancedCartItems.reduce((acc, item) => acc + (item.price || 0) * item.quantity, 0);
-    const shipping = 15.00;
+    const shipping = 500; // Base shipping in LKR
     const total = subtotal + shipping;
 
     const handleCheckout = () => {

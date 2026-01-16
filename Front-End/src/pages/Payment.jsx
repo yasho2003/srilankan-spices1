@@ -19,7 +19,7 @@ const Payment = () => {
         paymentMethod: 'card'
     });
 
-    const shipping = 15.00;
+    const shipping = 500; // Base shipping in LKR
     const total = cartTotal + shipping;
 
     const handleInputChange = (e) => {

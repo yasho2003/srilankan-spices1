@@ -33,9 +33,9 @@ export const CurrencyProvider = ({ children }) => {
         const convertedPrice = priceInLkr * exchangeRate;
 
         if (currency === 'USD') {
-            return `$ ${convertedPrice.toFixed(2)}`;
+            return `$${convertedPrice.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
         } else {
-            return `Rs. ${convertedPrice.toFixed(2)}`;
+            return `Rs. ${convertedPrice.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
         }
     };
 

@@ -1,10 +1,12 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useCart } from "../context/useCart";
+import { useCurrency } from "../context/useCurrency";
 import "./Home.css";
 
 function Home() {
   const navigate = useNavigate();
   const { addToCart } = useCart();
+  const { formatPrice } = useCurrency();
 
   const featuredSpices = [
     {
@@ -12,56 +14,55 @@ function Home() {
       name: "Ceylon Cinnamon (කුරුඳු)",
       description: "True Cinnamon, delicate and slightly sweet, harvested from the inner bark.",
       image: "/images/spice-cinnamon.png",
-      price: "$15.00",
+      price: 2000,
     },
     {
       id: 2,
       name: "Green Cardamom (කරදමුංගු)",
       description: "The 'Queen of Spices', known for its intense, slightly sweet flavor.",
       image: "/images/spice-cardamom.png",
-      price: "$22.50",
+      price: 1500,
     },
     {
       id: 3,
       name: "Black Pepper (ගම්මිරිස්)",
       description: "King of spices, offering a sharp, hot biting taste.",
       image: "/images/spice-pepper.png",
-      price: "$12.00",
+      price: 1000,
     },
     {
       id: 4,
       name: "Chili Flakes (කෑලිමිරිස්)",
       description: "Sun-dried red chilies crushed for a fiery kick.",
       image: "/images/spice-chili-flakes.png",
-      price: "$8.50",
+      price: 1500,
     },
     {
       id: 5,
       name: "Turmeric Powder (කහකුඩු)",
       description: "Vibrant yellow spice known for its earthy aroma and health benefits.",
       image: "/images/spice-turmeric.png",
-      price: "$10.00",
+      price: 1900,
     },
     {
       id: 6,
       name: "Nutmeg (සාදික්කා)",
       description: "Warm, nutty flavor perfect for baking and savory dishes.",
       image: "/images/spice-nutmeg.png",
-      price: "$18.00",
+      price: 2400,
     },
   ];
 
   const handleAddToCart = async (spice) => {
-    const success = await addToCart(spice.id, 1);
+    const success = await addToCart(spice);
     if (success) {
-
       alert(`${spice.name} added to cart!`);
     }
   };
 
   const handleBuyNow = async (spice) => {
     // Add to cart before requesting payment
-    await addToCart(spice.id, 1);
+    await addToCart(spice);
     // Navigate to payment/checkout
     navigate("/payment");
   };
@@ -91,7 +92,7 @@ function Home() {
               <img src={spice.image} alt={spice.name} />
               <h3>{spice.name}</h3>
               <p>{spice.description}</p>
-              <div className="spice-price">{spice.price}</div>
+              <div className="spice-price">{formatPrice(spice.price)}</div>
               <div className="spice-actions">
                 <button
                   className="spice-btn btn-cart"
