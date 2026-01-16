@@ -39,19 +39,20 @@
 
 .hero-content h1 {
     font-family: var(--font-heading);
-    font-size: 4.5rem;
+    font-size: 3.5rem;
     margin-bottom: 0.5rem;
     text-transform: capitalize;
-    text-shadow: 2px 2px 4px rgba(78, 77, 77, 0.276);
-    color: aliceblue;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    color: #ffffff;
 }
 
 .hero-content p {
     font-family: var(--font-body);
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     margin-bottom: 2rem;
     font-weight: 300;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    color: #ffffff;
 }
 
 .cta-button {
